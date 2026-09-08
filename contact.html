@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-theme="gold-obsidian">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GiftForge · Contact · Concierge</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23C5A059'/><path fill='%23FFFFFF' d='M48 22H42.8C43.5 20.8 44 19.5 44 18C44 14.7 41.3 12 38 12C34.8 12 32.5 14.5 32 17.5C31.5 14.5 29.2 12 26 12C22.7 12 20 14.7 20 18C20 19.5 20.5 20.8 21.2 22H16C13.8 22 12 23.8 12 26V30C12 30.6 12.4 31 13 31H16V48C16 50.2 17.8 52 20 52H44C46.2 52 48 50.2 48 48V31H51C51.6 31 52 30.6 52 30V26C52 23.8 50.2 22 48 22ZM38 16C39.1 16 40 16.9 40 18C40 19.1 39.1 20 38 20C35.5 20 34.2 17.8 34 16.3C34.6 16.1 36.3 16 38 16ZM26 16C27.7 16 29.4 16.1 30 16.3C29.8 17.8 28.5 20 26 20C24.9 20 24 19.1 24 18C24 16.9 24.9 16 26 16ZM44 48H34V31H44V48ZM44 27H34V25H44V27ZM30 25V31H20V27H30V25ZM20 48V31H30V48H20Z'/></svg>">
+  <meta name="description" content="Connect with our luxury concierge team. Reach us by phone, email, or visit our flagship atelier in NYC.">
+  <!-- Tailwind + config -->
+    <script src="tailwind.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'gift-slate': 'var(--color-primary)',
+            'gift-slate-light': 'var(--color-primary-light)',
+            'gift-slate-dark': 'var(--color-primary-dark)',
+            'gift-slate-bright': 'var(--color-primary-bright)',
+            'gift-accent': 'var(--color-accent)',
+            'bg-warm': 'var(--color-bg-warm)',
+            'neutral-dark': 'var(--color-text-dark)',
+            'neutral-light': '#E8EDF2',
+            'dark-bg': '#0A0D12',
+            'dark-card': '#141A24',
+            'dark-surface': '#1C2432',
+          },
+          fontFamily: {
+            'sans': ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            'display': ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+            'premium': ['Outfit', 'sans-serif'],
+            'alt': ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          animation: {
+            'slide-up': 'slideUp 0.5s ease-out',
+            'fade-in': 'fadeIn 0.3s ease-out',
+            'pulse-glow': 'pulseGlow 3s infinite',
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+          },
+          keyframes: {
+            slideUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            pulseGlow: { '0%, 100%': { opacity: '0.6' }, '50%': { opacity: '1' } },
+            floatSlow: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } },
+            scaleIn: { '0%': { transform: 'scale(0.95)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } },
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ===== same theme variables ===== */
+    :root, [data-theme="gold-obsidian"] {
+      --color-primary: #C5A059;
+      --color-primary-light: #DFBA67;
+      --color-primary-dark: #9E7D3B;
+      --color-primary-bright: #E6C687;
+      --color-accent: #D4AF37;
+      --color-bg-warm: #FAF8F5;
+      --color-text-dark: #0B0F17;
+      --color-rgb-primary: 197, 160, 89;
+      --color-rgb-bright: 230, 198, 135;
+    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--color-bg-warm); color: var(--color-text-dark); transition: background-color 0.4s ease, color 0.4s ease; }
+    .dark body { background-color: #0A0D12; color: #E2E8F0; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', sans-serif; font-weight: 700; letter-spacing: -0.025em; }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #E6C687 0%, #C5A059 50%, #9E7D3B 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    /* dark overrides */
+    .dark .text-gift-slate { color: var(--color-primary-bright) !important; }
+    .dark .bg-gift-slate { background-color: var(--color-primary-bright) !important; }
+    .dark .border-gift-slate { border-color: var(--color-primary-bright) !important; }
+    .dark .service-icon { background: rgba(var(--color-rgb-bright), 0.12) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.25); }
+    .dark .badge { background: rgba(var(--color-rgb-bright), 0.15) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.3); }
+    .dark .dropdown-item:hover { color: var(--color-primary-bright) !important; }
+    .dark .auth-btn.login:hover { border-color: var(--color-primary-bright) !important; color: var(--color-primary-bright) !important; }
+    .dark .nav-item:hover { color: var(--color-primary-bright) !important; }
+    .dark .nav-item::after { background: var(--color-primary-bright) !important; }
+    .dark .premium-line { background: linear-gradient(90deg, var(--color-primary-bright), rgba(var(--color-rgb-bright), 0.1)); }
+    body::-webkit-scrollbar { display: none; }
+    body { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ===== REFERENCE NAV & FOOTER STYLES ===== */
+    .nav-item { position: relative; padding: 0.5rem 0; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--color-text-dark); transition: color 0.3s ease; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; white-space: nowrap; }
+    .dark .nav-item { color: #E2E8F0; }
+    .nav-item:hover { color: var(--color-primary); }
+    .dark .nav-item:hover { color: var(--color-primary-bright); }
+    .nav-item::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light)); transition: width 0.3s ease; }
+    .dark .nav-item::after { background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary-light)); }
+    .nav-item:hover::after { width: 100%; }
+    .dropdown { position: relative; }
+    .dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 230px; background: rgba(255,255,255,0.98); border-radius: 16px; padding: 0.85rem 0; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.18); opacity: 0; visibility: hidden; transform: translateY(12px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1000; border: 1px solid rgba(var(--color-rgb-primary), 0.2); backdrop-filter: blur(12px); }
+    .dark .dropdown-menu { background: rgba(20, 26, 36, 0.98); border-color: rgba(var(--color-rgb-bright), 0.25); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6); }
+    .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-item { display: flex; align-items: center; padding: 0.8rem 1.6rem; color: var(--color-text-dark); transition: all 0.2s ease; white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 500; }
+    .dark .dropdown-item { color: #E2E8F0; }
+    .dropdown-item:hover { background: rgba(var(--color-rgb-primary), 0.1); color: var(--color-primary); padding-left: 1.85rem; }
+    .dark .dropdown-item:hover { background: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
+    .dropdown-item i { margin-right: 0.85rem; width: 20px; text-align: center; color: var(--color-primary); }
+    .auth-btn { padding: 0.6rem 1.75rem; border-radius: 50px; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s ease; border: 1px solid transparent; white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; }
+    .auth-btn.login { background: transparent; border-color: rgba(var(--color-rgb-primary), 0.4); color: var(--color-text-dark); }
+    .dark .auth-btn.login { border-color: rgba(var(--color-rgb-bright), 0.4); color: #E2E8F0; }
+    .auth-btn.login:hover { border-color: var(--color-primary); color: var(--color-primary); background: rgba(var(--color-rgb-primary), 0.05); }
+    .dark .auth-btn.login:hover { border-color: var(--color-primary-bright); color: var(--color-primary-bright); background: rgba(var(--color-rgb-bright), 0.1); }
+    .auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); color: white; box-shadow: 0 4px 15px rgba(var(--color-rgb-primary), 0.3); }
+    .dark .auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%); color: #0A0D12; }
+    .auth-btn.signup:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-primary), 0.4); }
+    .toggle-btn { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(var(--color-rgb-primary), 0.12); color: var(--color-primary); transition: all 0.3s ease; border: 1px solid rgba(var(--color-rgb-primary), 0.2); cursor: pointer; }
+    .dark .toggle-btn { background: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); border-color: rgba(var(--color-rgb-bright), 0.25); }
+    .toggle-btn:hover { background: var(--color-primary); color: white; transform: scale(1.08); }
+    .dark .toggle-btn:hover { background: var(--color-primary-bright); color: #0A0D12; transform: scale(1.08); }
+    .toggle-btn.active { background: var(--color-primary); color: white; }
+    .dark .toggle-btn.active { background: var(--color-primary-bright); color: #0A0D12; }
+    @media (max-width: 1279px) { .desktop-toggle-group { display: none !important; } }
+    .mobile-menu { background: white; border-top: 1px solid rgba(var(--color-rgb-primary), 0.15); max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+    .dark .mobile-menu { background: #0A0D12; border-color: rgba(var(--color-rgb-bright), 0.2); }
+    .mobile-menu.open { max-height: 85vh; overflow-y: auto; }
+    .mobile-menu-item { display: block; padding: 1.1rem 1.75rem; font-weight: 600; color: var(--color-text-dark); border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.1); transition: all 0.2s ease; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.03em; font-size: 0.9rem; }
+    .dark .mobile-menu-item { color: #E2E8F0; border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+    .mobile-menu-item:hover { background-color: rgba(var(--color-rgb-primary), 0.06); color: var(--color-primary); }
+    .dark .mobile-menu-item:hover { background-color: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); }
+    .mobile-dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: rgba(var(--color-rgb-primary), 0.04); }
+    .dark .mobile-dropdown-content { background: rgba(20, 26, 36, 0.8); }
+    .mobile-dropdown-content.show { max-height: 300px; }
+    .mobile-dropdown-item { display: block; padding: 0.85rem 2.75rem; font-size: 0.92rem; color: var(--color-text-dark); transition: all 0.2s ease; border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.08); font-family: 'Plus Jakarta Sans', sans-serif; }
+    .dark .mobile-dropdown-item { color: #CBD5E1; border-bottom-color: rgba(var(--color-rgb-bright), 0.1); }
+    .mobile-dropdown-item:hover { color: var(--color-primary); background-color: rgba(var(--color-rgb-primary), 0.1); }
+    .dark .mobile-dropdown-item:hover { background-color: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
+    .mobile-auth-btn { display: inline-block; padding: 0.85rem 1.75rem; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; text-align: center; margin: 0.25rem; border: 1px solid transparent; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
+    .mobile-auth-btn.login { background: transparent; border-color: rgba(var(--color-rgb-primary), 0.4); color: var(--color-text-dark); }
+    .dark .mobile-auth-btn.login { border-color: rgba(var(--color-rgb-bright), 0.4); color: #E2E8F0; }
+    .mobile-auth-btn.login:hover { background-color: var(--color-primary); color: white; border-color: var(--color-primary); }
+    .dark .mobile-auth-btn.login:hover { background-color: var(--color-primary-bright); color: #0A0D12; border-color: var(--color-primary-bright); }
+    .mobile-auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); color: white; }
+    .dark .mobile-auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%); color: #0A0D12; }
+    .mobile-auth-btn.signup:hover { opacity: 0.95; }
+    .desktop-nav-container { display: flex; align-items: center; gap: 2rem; }
+
+    /* ----- Contact page unique styles ----- */
+    .contact-hero-image {
+      border-radius: 48px 48px 4px 48px;
+      box-shadow: 20px 20px 0px 0px rgba(var(--color-rgb-primary), 0.10);
+      border: 1px solid rgba(var(--color-rgb-primary), 0.15);
+    }
+    .dark .contact-hero-image {
+      box-shadow: 20px 20px 0px 0px rgba(var(--color-rgb-bright), 0.08);
+      border-color: rgba(var(--color-rgb-bright), 0.2);
+    }
+    .pill-badge {
+      background: rgba(var(--color-rgb-primary), 0.1);
+      color: var(--color-primary);
+      padding: 0.3rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+    }
+    .dark .pill-badge {
+      background: rgba(var(--color-rgb-bright), 0.15);
+      color: var(--color-primary-bright);
+      border-color: rgba(var(--color-rgb-bright), 0.3);
+    }
+    .contact-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+      box-shadow: 0 8px 25px -8px rgba(var(--color-rgb-primary), 0.06);
+      text-align: center;
+    }
+    .dark .contact-card {
+      background: #141A24;
+      border-color: rgba(var(--color-rgb-bright), 0.15);
+      box-shadow: 0 8px 25px -8px rgba(0,0,0,0.4);
+    }
+    .contact-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-primary);
+      box-shadow: 0 25px 45px -12px rgba(var(--color-rgb-primary), 0.2);
+    }
+    .dark .contact-card:hover {
+      border-color: var(--color-primary-bright);
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.6);
+    }
+    .contact-card .icon-wrap {
+      width: 60px;
+      height: 60px;
+      background: rgba(var(--color-rgb-primary), 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      border: 1px solid rgba(var(--color-rgb-primary), 0.15);
+    }
+    .dark .contact-card .icon-wrap {
+      background: rgba(var(--color-rgb-bright), 0.10);
+      color: var(--color-primary-bright);
+      border-color: rgba(var(--color-rgb-bright), 0.2);
+    }
+    .form-input {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border-radius: 16px;
+      border: 1px solid rgba(var(--color-rgb-primary), 0.2);
+      background: white;
+      color: var(--color-text-dark);
+      transition: all 0.3s ease;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .dark .form-input {
+      background: #0A0D12;
+      border-color: rgba(var(--color-rgb-bright), 0.2);
+      color: #E2E8F0;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 4px rgba(var(--color-rgb-primary), 0.1);
+    }
+    .dark .form-input:focus {
+      border-color: var(--color-primary-bright);
+      box-shadow: 0 0 0 4px rgba(var(--color-rgb-bright), 0.1);
+    }
+    .form-input::placeholder {
+      color: rgba(var(--color-text-dark), 0.4);
+    }
+    .dark .form-input::placeholder {
+      color: rgba(226, 232, 240, 0.3);
+    }
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-dark);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .dark .form-label {
+      color: #E2E8F0;
+    }
+    .btn-outline-gift {
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      background: transparent;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .dark .btn-outline-gift {
+      border-color: var(--color-primary-bright);
+      color: var(--color-primary-bright);
+    }
+    .btn-outline-gift:hover {
+      background: var(--color-primary);
+      color: white;
+      transform: scale(1.03);
+    }
+    .dark .btn-outline-gift:hover {
+      background: var(--color-primary-bright);
+      color: #0A0D12;
+    }
+    .btn-gift { background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); color: white; padding: 0.9rem 2.25rem; border-radius: 50px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.6rem; transition: all 0.3s; font-size: 0.95rem; font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif; box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-primary), 0.35); }
+    .dark .btn-gift { background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%); color: #0A0D12; box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-bright), 0.35); }
+    .btn-gift:hover { transform: translateY(-3px); box-shadow: 0 18px 35px -8px rgba(var(--color-rgb-primary), 0.5); }
+    .dark .btn-gift:hover { box-shadow: 0 18px 35px -8px rgba(var(--color-rgb-bright), 0.5); }
+    .social-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(var(--color-rgb-primary), 0.1); color: var(--color-primary); display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; border: 1px solid rgba(var(--color-rgb-primary), 0.2); }
+    .dark .social-icon { background: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); border-color: rgba(var(--color-rgb-bright), 0.25); }
+    .social-icon:hover { background: var(--color-primary); color: white; transform: translateY(-3px) scale(1.05); }
+    .dark .social-icon:hover { background: var(--color-primary-bright); color: #0A0D12; }
+    .premium-line { width: 90px; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), transparent); margin: 24px 0; border-radius: 2px; }
+    .dark .premium-line { background: linear-gradient(90deg, var(--color-primary-bright), var(--color-primary-light), transparent); }
+    footer a:hover { color: var(--color-primary); }
+    .dark footer a:hover { color: var(--color-primary-bright); }
+    .map-placeholder {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+      background: rgba(var(--color-rgb-primary), 0.04);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .dark .map-placeholder {
+      background: rgba(var(--color-rgb-bright), 0.04);
+      border-color: rgba(var(--color-rgb-bright), 0.15);
+    }
+  </style>
+</head>
+<body class="bg-bg-warm dark:bg-dark-bg text-neutral-dark dark:text-gray-200 transition-colors duration-400">
+
+<!-- ========== HEADER (EXACT COPY) ========== -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-[#0A0D12]/90 backdrop-blur-md border-b border-neutral-light/80 dark:border-gray-800/80 transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="flex items-center justify-between h-22 py-4">
+      <a href="index.html" class="flex items-center space-x-3 group flex-nowrap" dir="ltr">
+        <div class="w-11 h-11 bg-gradient-to-br from-gift-slate-light to-gift-slate rounded-2xl flex items-center justify-center flex-shrink-0 transform group-hover:rotate-12 transition-transform duration-300 shadow-lg border border-gift-slate/20">
+          <i class="fas fa-gift text-white dark:text-dark-bg text-xl"></i>
+        </div>
+        <div class="flex items-center whitespace-nowrap">
+          <span class="text-2xl font-display font-extrabold tracking-tight text-neutral-dark dark:text-white">Gift</span>
+          <span class="text-2xl font-display font-extrabold tracking-tight gold-gradient-text ml-0.5">Forge</span>
+        </div>
+      </a>
+      <div class="hidden xl:flex items-center">
+        <div class="desktop-nav-container">
+          <div class="flex items-center gap-3 lg:gap-4 xl:gap-5">
+            <div class="dropdown">
+              <button class="nav-item flex items-center gap-1.5">Home <i class="fas fa-chevron-down text-[10px]"></i></button>
+              <div class="dropdown-menu">
+                <a href="index.html" class="dropdown-item">Home 1</a>
+                <a href="home2.html" class="dropdown-item">Home 2</a>
+              </div>
+            </div>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="products.html" class="nav-item">Products</a>
+            <a href="customization.html" class="nav-item">Customization</a>
+            <a href="order.html" class="nav-item">Order</a>
+            <a href="contact.html" class="nav-item" style="color: var(--color-primary);">Contact</a>
+            <div class="dropdown">
+              <button class="nav-item flex items-center gap-1.5">Dashboard <i class="fas fa-chevron-down text-[10px]"></i></button>
+              <div class="dropdown-menu">
+                <a href="admin.html" class="dropdown-item">Admin</a>
+                <a href="client.html" class="dropdown-item">Client</a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 ml-2">
+            <a href="login.html" class="auth-btn login">Login</a>
+            <a href="signup.html" class="auth-btn signup">Sign Up</a>
+          </div>
+        </div>
+        <div class="flex gap-2.5 ml-5 desktop-toggle-group">
+          <button id="theme-toggle" class="toggle-btn" title="Toggle Dark/Light Mode"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+          <button id="rtl-toggle" class="toggle-btn" title="Toggle RTL/LTR">⇄</button>
+        </div>
+      </div>
+      <button id="mobile-toggle" class="xl:hidden text-neutral-dark dark:text-gray-300 p-2 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu xl:hidden">
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn flex items-center justify-between w-full mobile-menu-item">
+          <span>Home</span> <i class="fas fa-chevron-down text-xs"></i>
+        </button>
+        <div class="mobile-dropdown-content">
+          <a href="index.html" class="mobile-dropdown-item">Home 1</a>
+          <a href="home2.html" class="mobile-dropdown-item">Home 2</a>
+        </div>
+      </div>
+      <a href="about.html" class="mobile-menu-item">About</a>
+      <a href="products.html" class="mobile-menu-item">Products</a>
+      <a href="customization.html" class="mobile-menu-item">Customization</a>
+      <a href="order.html" class="mobile-menu-item">Order</a>
+      <a href="contact.html" class="mobile-menu-item" style="background: rgba(var(--color-rgb-primary),0.08); color: var(--color-primary);">Contact</a>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn flex items-center justify-between w-full mobile-menu-item">
+          <span>Dashboard</span> <i class="fas fa-chevron-down text-xs"></i>
+        </button>
+        <div class="mobile-dropdown-content">
+          <a href="admin.html" class="mobile-dropdown-item">Admin</a>
+          <a href="client.html" class="mobile-dropdown-item">Client</a>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 p-6">
+        <a href="login.html" class="mobile-auth-btn login flex-1 text-center">Login</a>
+        <a href="signup.html" class="mobile-auth-btn signup flex-1 text-center">Sign Up</a>
+      </div>
+      <div class="flex justify-center gap-3 p-6 border-t border-gray-200 dark:border-gray-800">
+        <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
+        <button id="rtl-toggle-mobile" class="toggle-btn">⇄</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO: CONTACT ========== -->
+<section class="min-h-[60vh] lg:min-h-[70vh] flex items-center pt-28 pb-16 bg-bg-warm dark:bg-dark-bg overflow-hidden transition-colors duration-400 relative">
+  <div class="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10" style="background: radial-gradient(circle at 50% 50%, var(--color-primary-light), transparent 70%);"></div>
+  <div class="container mx-auto px-6 relative z-10 text-center">
+    <div class="max-w-3xl mx-auto animate-slide-up">
+      <div class="inline-flex items-center gap-2 bg-white/80 dark:bg-dark-card/60 px-5 py-2 rounded-full border border-gift-slate/20 backdrop-blur-md mb-6">
+        <i class="fas fa-headset text-gift-slate dark:text-gift-slate-bright text-xs"></i>
+        <span class="text-[11px] font-bold font-alt dark:text-gift-slate-bright tracking-widest uppercase">Concierge Service</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold leading-[1.15] text-neutral-dark dark:text-white mb-4">
+        Let's <span class="gold-gradient-text">Connect</span>
+      </h1>
+      <div class="premium-line !my-6 mx-auto"></div>
+      <p class="text-lg lg:text-xl text-neutral-dark/80 dark:text-gray-300 max-w-2xl mx-auto mb-8 font-premium italic leading-relaxed">
+        Our master concierges are at your service — whether you're ready to place an order, explore bespoke, or simply seek inspiration.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button class="btn-gift !py-4 !px-8 text-base"><i class="fas fa-phone mr-2"></i> Call Us</button>
+        <button class="btn-outline-gift text-base"><i class="fas fa-envelope mr-2"></i> Email Concierge</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT INFO CARDS ========== -->
+<section class="py-16 bg-white dark:bg-dark-card border-b border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="contact-card">
+        <div class="icon-wrap"><i class="fas fa-phone"></i></div>
+        <h3 class="font-display font-bold text-lg">Phone</h3>
+        <p class="text-sm opacity-70">+1 (800) 555-0199</p>
+        <p class="text-xs opacity-50 mt-1">Mon–Fri, 9AM–6PM EST</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon-wrap"><i class="fas fa-envelope"></i></div>
+        <h3 class="font-display font-bold text-lg">Email</h3>
+        <p class="text-sm opacity-70">concierge@gift.com</p>
+        <p class="text-xs opacity-50 mt-1">Response within 2 hours</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+        <h3 class="font-display font-bold text-lg">Atelier</h3>
+        <p class="text-sm opacity-70">5th Ave Luxury Tower</p>
+        <p class="text-xs opacity-50 mt-1">NYC 10001, USA</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon-wrap"><i class="fas fa-calendar-alt"></i></div>
+        <h3 class="font-display font-bold text-lg">Consultation</h3>
+        <p class="text-sm opacity-70">Book a discovery call</p>
+        <p class="text-xs opacity-50 mt-1">Virtual or in-person</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT FORM SECTION ========== -->
+<section class="py-24 bg-bg-warm dark:bg-dark-bg transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gift-slate dark:text-gift-slate-bright font-bold text-xs tracking-widest font-alt uppercase">BESPOKE INQUIRIES</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-3 text-neutral-dark dark:text-white">
+        Request a <span class="gold-gradient-text">Bespoke Consultation</span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto opacity-80 mt-2 font-premium italic">Connect directly with our corporate gifting master curators</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto bg-white dark:bg-dark-card p-8 sm:p-12 rounded-3xl border border-gift-slate/15 dark:border-gift-slate-bright/20 shadow-xl">
+      <div class="text-center mb-8">
+        <span class="pill-badge"><i class="fas fa-pencil-alt mr-2"></i> Send a Message</span>
+        <h3 class="text-2xl md:text-3xl font-display font-bold mt-3 text-neutral-dark dark:text-white">Get in <span class="gold-gradient-text">Touch</span></h3>
+        <p class="text-sm opacity-80 mt-1 font-premium italic">Our concierge team will respond within 2 business hours.</p>
+      </div>
+      <form class="space-y-6">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="form-label">Full Name</label>
+            <input type="text" placeholder="James Sterling" class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Email Address</label>
+            <input type="email" placeholder="james@giftforge.com" class="form-input">
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="form-label">Phone Number</label>
+            <input type="tel" placeholder="+1 (800) 555-0199" class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Subject</label>
+            <select class="form-input appearance-none">
+              <option>General Inquiry</option>
+              <option>Bespoke Order</option>
+              <option>Bulk Procurement</option>
+              <option>Customization</option>
+              <option>Partnership</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="form-label">Message</label>
+          <textarea rows="4" placeholder="Tell us about your gifting vision..." class="form-input resize-none"></textarea>
+        </div>
+        <button type="submit" class="btn-gift w-full justify-center py-4"><i class="fas fa-paper-plane mr-2"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MAP & LOCATION SECTION ========== -->
+<section class="py-24 bg-white dark:bg-dark-card transition-colors duration-400 border-t border-neutral-light/50 dark:border-gray-800/60">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto text-center mb-12">
+      <span class="pill-badge"><i class="fas fa-location-dot mr-2"></i> Visit Us</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Our <span class="gold-gradient-text">Flagship Atelier</span></h2>
+      <p class="text-base opacity-80 mt-2 font-premium italic">Experience bespoke consultations in person at 5th Avenue, NYC</p>
+    </div>
+    
+    <div class="max-w-5xl mx-auto">
+      <div class="relative w-full h-[420px] rounded-3xl overflow-hidden border border-gift-slate/20 dark:border-gift-slate-bright/30 shadow-2xl group mb-10">
+        <iframe 
+          title="GiftForge NYC Location Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.617541165683!2d-73.98565562342557!3d40.74844047138766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sFifth%20Ave%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+          class="w-full h-full border-0 filter opacity-90 contrast-105 hover:opacity-100 transition-all duration-500" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="absolute bottom-5 left-5 bg-white/95 dark:bg-dark-card/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-gift-slate/20 dark:border-gift-slate-bright/30 pointer-events-none">
+          <span class="text-sm font-bold font-alt tracking-wider text-neutral-dark dark:text-white flex items-center gap-2">
+            <i class="fas fa-map-pin text-gift-slate dark:text-gift-slate-bright"></i> 5th Ave Luxury Tower, NYC 10001
+          </span>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="bg-bg-warm dark:bg-dark-bg rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center">
+          <div class="text-gift-slate dark:text-gift-slate-bright text-2xl mx-auto mb-2"><i class="fas fa-clock"></i></div>
+          <h4 class="font-bold text-base mt-1">Concierge Hours</h4>
+          <p class="text-xs opacity-70 mt-1">Mon–Fri: 9AM – 6PM EST</p>
+          <p class="text-xs opacity-50 mt-0.5">Sat–Sun: By appointment</p>
+        </div>
+        <div class="bg-bg-warm dark:bg-dark-bg rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center">
+          <div class="text-gift-slate dark:text-gift-slate-bright text-2xl mx-auto mb-2"><i class="fas fa-globe"></i></div>
+          <h4 class="font-bold text-base mt-1">Global Procurement</h4>
+          <p class="text-xs opacity-70 mt-1">Serving 50+ countries</p>
+          <p class="text-xs opacity-50 mt-0.5">White-glove delivery</p>
+        </div>
+        <div class="bg-bg-warm dark:bg-dark-bg rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center">
+          <div class="text-gift-slate dark:text-gift-slate-bright text-2xl mx-auto mb-2"><i class="fas fa-headset"></i></div>
+          <h4 class="font-bold text-base mt-1">Priority Service</h4>
+          <p class="text-xs opacity-70 mt-1">Emergency after-hours line</p>
+          <p class="text-xs opacity-50 mt-0.5"><a href="#" class="text-gift-slate dark:text-gift-slate-bright font-bold hover:underline">Direct Concierge Link</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA : SUBSCRIBE ========== -->
+<section class="py-24 bg-gradient-to-br from-gift-slate-dark via-gift-slate to-gift-slate-dark dark:from-[#0A0D12] dark:via-dark-card dark:to-[#0A0D12] text-white transition-colors duration-400 relative overflow-hidden border-b border-gift-slate/20">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gift-slate-light/20 via-transparent to-transparent pointer-events-none"></div>
+  <div class="container mx-auto px-6 text-center relative z-10">
+    <span class="text-white/80 font-bold text-xs tracking-widest font-alt uppercase">Stay Inspired</span>
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 mt-4">Subscribe to <span class="text-gift-slate-bright">The Edit</span></h2>
+    <p class="text-xl opacity-90 max-w-2xl mx-auto mb-8 font-premium italic leading-relaxed">Receive quarterly collections, behind-the-scenes craftsmanship, and exclusive enterprise offers.</p>
+    <div class="flex flex-wrap gap-4 justify-center max-w-lg mx-auto">
+      <input type="email" placeholder="Your email address" class="flex-1 min-w-[200px] px-6 py-4 rounded-full border-0 focus:outline-none text-neutral-dark bg-white/95 dark:bg-dark-card/95 placeholder:text-neutral-dark/50 dark:placeholder:text-gray-400">
+      <button class="bg-white text-neutral-dark dark:bg-gift-slate-bright dark:text-dark-bg px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider hover:shadow-2xl transition"><i class="fas fa-arrow-right mr-2"></i> Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER (EXACT COPY) ========== -->
+<footer class="py-20 transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="text-center md:text-start">
+        <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+          <a href="index.html" class="flex items-center space-x-3 group flex-nowrap" dir="ltr">
+            <div class="w-11 h-11 bg-gradient-to-br from-gift-slate-light to-gift-slate rounded-2xl flex items-center justify-center flex-shrink-0 transform group-hover:rotate-12 transition-transform duration-300 shadow-lg border border-gift-slate/20">
+              <i class="fas fa-gift text-white dark:text-dark-bg text-xl"></i>
+            </div>
+            <div class="flex items-center whitespace-nowrap">
+              <span class="text-2xl font-display font-extrabold tracking-tight text-neutral-dark dark:text-white">Gift</span>
+              <span class="text-2xl font-display font-extrabold tracking-tight gold-gradient-text ml-0.5">Forge</span>
+            </div>
+          </a>
+        </div>
+        <p class="text-base opacity-80 mb-6 leading-relaxed font-sans">Haute B2B corporate gifting &amp; bespoke merchandise. Tailored for lasting impression and brand prestige.</p>
+        <div class="flex justify-center md:justify-start gap-4">
+          <a href="#" class="social-icon text-base"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon text-base"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon text-base"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="text-center md:text-start">
+        <h3 class="text-neutral-dark dark:text-white text-xl font-display font-bold mb-6">Quick Links</h3>
+        <ul class="space-y-4 text-base font-sans">
+          <li><a href="index.html" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Home</a></li>
+          <li><a href="about.html" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">About Us</a></li>
+          <li><a href="products.html" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Products</a></li>
+          <li><a href="customization.html" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Customization</a></li>
+          <li><a href="order.html" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Order</a></li>
+          <li><a href="contact.html" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h3 class="text-neutral-dark dark:text-white text-xl font-display font-bold mb-6">Categories</h3>
+        <ul class="space-y-4 text-base font-sans">
+          <li><a href="#" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Luxury Hampers</a></li>
+          <li><a href="#" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Executive Apparel</a></li>
+          <li><a href="#" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Artisan Drinkware</a></li>
+          <li><a href="#" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Haute Tech</a></li>
+          <li><a href="#" class="hover:text-gift-slate dark:hover:text-gift-slate-bright transition">Sustainable Luxury</a></li>
+        </ul>
+      </div>
+      <div class="text-center md:text-start">
+        <h3 class="text-neutral-dark dark:text-white text-xl font-display font-bold mb-6">Contact Concierge</h3>
+        <ul class="space-y-4 text-base mb-8 font-sans">
+          <li class="flex items-center justify-center md:justify-start gap-3"><i class="fas fa-map-marker-alt text-gift-slate dark:text-gift-slate-bright w-5 text-lg"></i><span class="text-base" dir="ltr">5th Ave Luxury Tower, NYC 10001</span></li>
+          <li class="flex items-center justify-center md:justify-start gap-3"><i class="fas fa-phone text-gift-slate dark:text-gift-slate-bright w-5 text-lg"></i><span class="text-base" dir="ltr">+1 (800) 555-0199</span></li>
+          <li class="flex items-center justify-center md:justify-start gap-3"><i class="fas fa-envelope text-gift-slate dark:text-gift-slate-bright w-5 text-lg"></i><span class="text-base" dir="ltr">concierge@gift.com</span></li>
+          <li class="flex items-center justify-center md:justify-start gap-3"><i class="fas fa-clock text-gift-slate dark:text-gift-slate-bright w-5 text-lg"></i><span class="text-base" dir="ltr">Mon-Fri: 9AM - 6PM EST</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gift-slate/15 dark:border-gift-slate-bright/15 mt-14 pt-8 text-center">
+      <p class="text-base opacity-90 font-sans" dir="ltr">© 2026 GiftForge Haute Corporate Gifting. All rights reserved.</p>
+      <p class="text-sm opacity-75 mt-2 font-premium italic">Bespoke • Sustainable • Enterprise Distinction</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== SAME JS (dark/rtl/mobile) ========== -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.setAttribute('data-theme', 'gold-obsidian');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle?.querySelector('.fa-moon');
+    const themeIconSun = themeToggle?.querySelector('.fa-sun');
+    const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+    const mobileThemeIcon = mobileThemeToggle?.querySelector('.fa-moon');
+    const mobileThemeIconSun = mobileThemeToggle?.querySelector('.fa-sun');
+
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        if (themeIcon) themeIcon.classList.add('hidden');
+        if (themeIconSun) themeIconSun.classList.remove('hidden');
+        if (themeToggle) themeToggle.classList.add('active');
+        if (mobileThemeIcon) mobileThemeIcon.classList.add('hidden');
+        if (mobileThemeIconSun) mobileThemeIconSun.classList.remove('hidden');
+        if (mobileThemeToggle) mobileThemeToggle.classList.add('active');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        if (themeIcon) themeIcon.classList.remove('hidden');
+        if (themeIconSun) themeIconSun.classList.add('hidden');
+        if (themeToggle) themeToggle.classList.remove('active');
+        if (mobileThemeIcon) mobileThemeIcon.classList.remove('hidden');
+        if (mobileThemeIconSun) mobileThemeIconSun.classList.add('hidden');
+        if (mobileThemeToggle) mobileThemeToggle.classList.remove('active');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      if (themeIcon) themeIcon.classList.add('hidden');
+      if (themeIconSun) themeIconSun.classList.remove('hidden');
+      if (themeToggle) themeToggle.classList.add('active');
+      if (mobileThemeIcon) mobileThemeIcon.classList.add('hidden');
+      if (mobileThemeIconSun) mobileThemeIconSun.classList.remove('hidden');
+      if (mobileThemeToggle) mobileThemeToggle.classList.add('active');
+    }
+
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const mobileRtlToggle = document.getElementById('rtl-toggle-mobile');
+    function toggleRTL() {
+      if (document.documentElement.dir === 'rtl') {
+        document.documentElement.dir = 'ltr';
+        document.documentElement.lang = 'en';
+        if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.remove('active'); }
+        if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.remove('active'); }
+        localStorage.setItem('dir', 'ltr');
+      } else {
+        document.documentElement.dir = 'rtl';
+        document.documentElement.lang = 'ar';
+        if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.add('active'); }
+        if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.add('active'); }
+        localStorage.setItem('dir', 'rtl');
+      }
+    }
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('dir') === 'rtl') {
+      document.documentElement.dir = 'rtl';
+      document.documentElement.lang = 'ar';
+      if (rtlToggle) { rtlToggle.textContent = '⇄'; rtlToggle.classList.add('active'); }
+      if (mobileRtlToggle) { mobileRtlToggle.textContent = '⇄'; mobileRtlToggle.classList.add('active'); }
+    }
+
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileToggleIcon = document.querySelector('#mobile-toggle i');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpening = !mobileMenu.classList.contains('open');
+        if (isOpening) {
+          mobileMenu.classList.add('open');
+          mobileToggleIcon.classList.remove('fa-bars');
+          mobileToggleIcon.classList.add('fa-times');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileMenu.classList.remove('open');
+          mobileToggleIcon.classList.remove('fa-times');
+          mobileToggleIcon.classList.add('fa-bars');
+          document.body.style.overflow = '';
+          document.querySelectorAll('.mobile-dropdown-content').forEach(c => c.classList.remove('show'));
+        }
+      });
+    }
+    document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdown = e.target.closest('.mobile-dropdown');
+        const content = dropdown.querySelector('.mobile-dropdown-content');
+        const icon = dropdown.querySelector('.fa-chevron-down');
+        const isOpening = !content.classList.contains('show');
+        content.classList.toggle('show');
+        icon.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+        if (isOpening) {
+          document.querySelectorAll('.mobile-dropdown-content').forEach(other => {
+            if (other !== content) {
+              other.classList.remove('show');
+              const otherIcon = other.parentElement.querySelector('.fa-chevron-down');
+              if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+            }
+          });
+        }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#mobile-menu') && !e.target.closest('#mobile-toggle') && mobileMenu?.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        if (mobileToggleIcon) {
+          mobileToggleIcon.classList.remove('fa-times');
+          mobileToggleIcon.classList.add('fa-bars');
+        }
+        document.body.style.overflow = '';
+        document.querySelectorAll('.mobile-dropdown-content').forEach(c => c.classList.remove('show'));
+      }
+    });
+  });
+</script>
+</body>
+</html>

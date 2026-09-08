@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-theme="gold-obsidian">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | GiftForge — Bulk Corporate Gifting</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23C5A059'/><path fill='%23FFFFFF' d='M48 22H42.8C43.5 20.8 44 19.5 44 18C44 14.7 41.3 12 38 12C34.8 12 32.5 14.5 32 17.5C31.5 14.5 29.2 12 26 12C22.7 12 20 14.7 20 18C20 19.5 20.5 20.8 21.2 22H16C13.8 22 12 23.8 12 26V30C12 30.6 12.4 31 13 31H16V48C16 50.2 17.8 52 20 52H44C46.2 52 48 50.2 48 48V31H51C51.6 31 52 30.6 52 30V26C52 23.8 50.2 22 48 22ZM38 16C39.1 16 40 16.9 40 18C40 19.1 39.1 20 38 20C35.5 20 34.2 17.8 34 16.3C34.6 16.1 36.3 16 38 16ZM26 16C27.7 16 29.4 16.1 30 16.3C29.8 17.8 28.5 20 26 20C24.9 20 24 19.1 24 18C24 16.9 24.9 16 26 16ZM44 48H34V31H44V48ZM44 27H34V25H44V27ZM30 25V31H20V27H30V25ZM20 48V31H30V48H20Z'/></svg>">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'gift-slate': 'var(--color-primary)',
+                        'gift-slate-light': 'var(--color-primary-light)',
+                        'gift-slate-dark': 'var(--color-primary-dark)',
+                        'gift-slate-bright': 'var(--color-primary-bright)',
+                        'gift-accent': 'var(--color-accent)',
+                        'bg-warm': 'var(--color-bg-warm)',
+                        'neutral-dark': 'var(--color-text-dark)',
+                        'neutral-light': '#E8EDF2',
+                        'dark-bg': '#0A0D12',
+                        'dark-card': '#141A24',
+                        'dark-surface': '#1C2432',
+                    },
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'display': ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+                        'premium': ['Outfit', 'sans-serif'],
+                        'alt': ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        slideUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        pulseGlow: { '0%, 100%': { opacity: '0.6' }, '50%': { opacity: '1' } },
+                        floatSlow: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root, [data-theme="gold-obsidian"] {
+            --color-primary: #C5A059;
+            --color-primary-light: #DFBA67;
+            --color-primary-dark: #9E7D3B;
+            --color-primary-bright: #E6C687;
+            --color-accent: #D4AF37;
+            --color-bg-warm: #FAF8F5;
+            --color-text-dark: #0B0F17;
+            --color-rgb-primary: 197, 160, 89;
+            --color-rgb-bright: 230, 198, 135;
+        }
+
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--color-bg-warm); color: var(--color-text-dark); transition: background-color 0.4s ease, color 0.4s ease; }
+        .dark body { background-color: #0A0D12; color: #E2E8F0; }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', sans-serif; font-weight: 700; letter-spacing: -0.025em; }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #E6C687 0%, #C5A059 50%, #9E7D3B 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .text-gift-slate { color: var(--color-primary-bright) !important; }
+        .dark .border-gift-slate { border-color: var(--color-primary-bright) !important; }
+        .dark .bg-gift-slate { background-color: var(--color-primary-bright) !important; }
+        body::-webkit-scrollbar { display: none; }
+        body { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0; top: 0; height: 100vh;
+            width: 280px;
+            background: #FFFFFF;
+            border-right: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            transition: transform 0.3s ease;
+            z-index: 100;
+            overflow-y: auto;
+        }
+        .dark .sidebar { background: #0A0D12; border-right-color: rgba(var(--color-rgb-bright), 0.15); }
+        @media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.open { transform: translateX(0); } }
+        .sidebar-overlay { position: fixed; top:0;left:0;right:0;bottom:0; background: rgba(0,0,0,0.5); z-index:99; display:none; }
+        .sidebar-overlay.open { display:block; }
+
+        .sidebar-item {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.85rem 1.5rem; margin: 0.25rem 0.75rem;
+            border-radius: 12px; color: var(--color-text-dark);
+            transition: all 0.2s; cursor: pointer;
+        }
+        .dark .sidebar-item { color: #E2E8F0; }
+        .sidebar-item:hover { background: rgba(var(--color-rgb-primary), 0.08); color: var(--color-primary); }
+        .dark .sidebar-item:hover { background: rgba(var(--color-rgb-bright), 0.12); color: var(--color-primary-bright); }
+        .sidebar-item.active { background: var(--color-primary); color: #FFFFFF; }
+        .dark .sidebar-item.active { background: var(--color-primary-bright); color: #0A0D12; }
+        .sidebar-item i { width: 24px; font-size: 1.1rem; }
+
+        .main-content { margin-left: 280px; padding: 1.5rem; min-height: 100vh; }
+        @media (max-width: 768px) { .main-content { margin-left: 0; padding-top: 70px; } }
+
+        .mobile-header {
+            display: none; position: fixed; top:0;left:0;right:0;
+            background: #FFFFFF; padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            z-index: 50; align-items: center; justify-content: space-between;
+        }
+        .dark .mobile-header { background: #0A0D12; border-bottom-color: rgba(var(--color-rgb-bright), 0.15); }
+        @media (max-width: 768px) { .mobile-header { display: flex; } }
+
+        .toggle-btn {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: rgba(var(--color-rgb-primary), 0.08);
+            color: var(--color-text-dark); display: inline-flex;
+            align-items: center; justify-content: center; cursor: pointer;
+            transition: all 0.2s; border: none;
+        }
+        .dark .toggle-btn { background: rgba(var(--color-rgb-bright), 0.12); color: #E2E8F0; }
+        .toggle-btn:hover { background: var(--color-primary); color: #FFFFFF; }
+        .dark .toggle-btn:hover { background: var(--color-primary-bright); color: #0A0D12; }
+
+        .card-design {
+            background: #FFFFFF; border-radius: 28px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+        }
+        .dark .card-design { background: #141A24; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .card-design:hover { border-color: var(--color-primary); }
+
+        .btn-primary-design {
+            background: var(--color-primary); color: #FFFFFF;
+            font-weight: 700; border-radius: 60px; transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(var(--color-rgb-primary), 0.3);
+            white-space: nowrap; border: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; vertical-align: middle;
+        }
+        .btn-primary-design:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(var(--color-rgb-primary), 0.4); color: #FFFFFF; }
+        .dark .btn-primary-design { background: var(--color-primary-bright); color: #0A0D12; }
+        .dark .btn-primary-design:hover { background: var(--color-primary); color: #FFFFFF; }
+
+        .btn-outline-design {
+            border: 1.5px solid var(--color-primary); color: var(--color-primary);
+            background: transparent; border-radius: 60px; font-weight: 600;
+            transition: all 0.3s; white-space: nowrap;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; vertical-align: middle;
+        }
+        .btn-outline-design:hover { background: var(--color-primary); color: #FFFFFF; transform: translateY(-2px); }
+        .dark .btn-outline-design { border-color: var(--color-primary-bright); color: var(--color-primary-bright); }
+        .dark .btn-outline-design:hover { background: var(--color-primary-bright); color: #0A0D12; }
+
+        .stat-card {
+            background: #FFFFFF; border-radius: 20px; padding: 1.2rem;
+            border: 1px solid rgba(var(--color-rgb-primary), 0.12);
+            transition: all 0.3s;
+        }
+        .dark .stat-card { background: #141A24; border-color: rgba(var(--color-rgb-bright), 0.15); }
+        .stat-card:hover { transform: translateY(-3px); border-color: var(--color-primary); }
+
+        .status-badge {
+            display: inline-flex; align-items: center; padding: 0.25rem 0.75rem;
+            border-radius: 40px; font-size: 0.7rem; font-weight: 700;
+        }
+        .status-confirmed { background: #E3F2FD; color: #0D47A1; }
+        .status-customization { background: #FFF3E0; color: #E65100; }
+        .status-production { background: #F3E5F5; color: #6A1B9A; }
+        .status-dispatch { background: #E8F5E9; color: #1B5E20; }
+        .status-completed { background: #E8F5E9; color: #1B5E20; }
+        .status-pending { background: #FFF3E0; color: #E65100; }
+        .status-paid { background: #E8F5E9; color: #1B5E20; }
+        .status-overdue { background: #FFEBEE; color: #C62828; }
+        .dark .status-confirmed { background: #0D47A1; color: #90CAF9; }
+        .dark .status-customization { background: #E65100; color: #FFCC80; }
+        .dark .status-production { background: #4A148C; color: #CE93D8; }
+        .dark .status-dispatch { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-completed { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-pending { background: #E65100; color: #FFCC80; }
+        .dark .status-paid { background: #1B5E20; color: #A5D6A7; }
+        .dark .status-overdue { background: #B71C1C; color: #EF9A9A; }
+
+        .form-input {
+            width: 100%; padding: 0.75rem 1rem;
+            border-radius: 16px; border: 1.5px solid rgba(var(--color-rgb-primary), 0.2);
+            background: #FFFFFF; transition: all 0.3s;
+            color: var(--color-text-dark); font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .dark .form-input { background: #0A0D12; border-color: rgba(var(--color-rgb-bright), 0.2); color: #E2E8F0; }
+        .form-input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 4px rgba(var(--color-rgb-primary), 0.15); }
+        .form-label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--color-text-dark); }
+        .dark .form-label { color: #E2E8F0; }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer; opacity: 0.85; transition: all 0.2s ease;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
+        .dark input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1) brightness(1.2); opacity: 0.9;
+        }
+        .dark input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
+
+        .progress-bar { height: 8px; background: rgba(var(--color-rgb-primary), 0.12); border-radius: 10px; overflow: hidden; }
+        .dark .progress-bar { background: rgba(var(--color-rgb-bright), 0.15); }
+        .progress-fill { height: 100%; background: var(--color-primary); border-radius: 10px; transition: width 0.6s ease; }
+        .dark .progress-fill { background: var(--color-primary-bright); }
+
+        .page-content.hidden { display: none; }
+        .client-card { transition: all 0.3s; cursor: pointer; }
+        .client-card:hover { transform: translateY(-2px); border-color: var(--color-primary); }
+
+        /* RTL support */
+        [dir="rtl"] .sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid rgba(var(--color-rgb-primary), 0.12); }
+        [dir="rtl"] .main-content { margin-left: 0; margin-right: 280px; }
+        [dir="rtl"] .sidebar-item i { margin-right: 0; margin-left: 0.75rem; }
+        @media (max-width: 768px) {
+            [dir="rtl"] .sidebar { transform: translateX(100%); }
+            [dir="rtl"] .sidebar.open { transform: translateX(0); }
+            [dir="rtl"] .main-content { margin-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <div class="flex items-center gap-3">
+            <button id="menuToggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="flex items-center gap-2 group shrink-0">
+                <div class="w-8 h-8 bg-gradient-to-br from-gift-slate-light to-gift-slate rounded-xl flex items-center justify-center">
+                    <i class="fas fa-gift text-white dark:text-dark-bg text-sm"></i>
+                </div>
+                <span class="text-lg font-display font-extrabold text-neutral-dark dark:text-white">Gift<span class="text-gift-slate">Forge</span></span>
+            </a>
+        </div>
+        <div class="flex gap-2">
+            <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i></button>
+            <button id="rtl-toggle-mobile" class="toggle-btn"><i class="fas fa-exchange-alt"></i></button>
+        </div>
+    </div>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="p-5 border-b border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-gift-slate-light to-gift-slate rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-gift text-white dark:text-dark-bg text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-display font-extrabold text-neutral-dark dark:text-white tracking-tight">Gift<span class="text-gift-slate">Forge</span></span>
+                    <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Admin Portal</p>
+                </div>
+            </a>
+        </div>
+        <nav class="py-4">
+            <div class="sidebar-item active" data-page="dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></div>
+            <div class="sidebar-item" data-page="orders"><i class="fas fa-clipboard-list"></i><span>Orders</span></div>
+            <div class="sidebar-item" data-page="clients"><i class="fas fa-users"></i><span>Clients</span></div>
+            <div class="sidebar-item" data-page="production"><i class="fas fa-cogs"></i><span>Production</span></div>
+            <div class="sidebar-item" data-page="billing"><i class="fas fa-receipt"></i><span>Billing</span></div>
+            <div class="sidebar-item" data-page="messages"><i class="fas fa-comments"></i><span>Messages</span></div>
+        </nav>
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+            <a href="login.html" class="flex items-center justify-center gap-2 w-full p-2.5 rounded-xl bg-[rgba(var(--color-rgb-primary),0.08)] hover:bg-gift-slate transition font-semibold text-sm text-neutral-dark dark:text-gray-200 hover:text-white">
+                <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="card-design p-4 md:p-6 flex justify-between items-center flex-wrap gap-3 mb-6">
+            <div>
+                <h1 class="text-2xl font-display font-bold" id="page-title">Dashboard</h1>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400" id="page-subtitle">Welcome back, Admin</p>
+            </div>
+            <div class="hidden lg:flex items-center gap-4">
+                <button id="theme-toggle" class="toggle-btn"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i></button>
+                <button id="rtl-toggle" class="toggle-btn"><i class="fas fa-exchange-alt"></i></button>
+                <div class="flex items-center gap-3 border-l border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)] pl-4">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-gift-slate shadow-sm shrink-0 bg-gift-slate">
+                        <img src="assets/admin_avatar.jpg" alt="Admin" class="w-full h-full object-cover object-top" style="object-position: center 15%;">
+                    </div>
+                    <div class="text-left hidden lg:block">
+                        <p class="text-sm font-bold text-neutral-dark dark:text-white leading-tight">Admin</p>
+                        <p class="text-[10px] text-neutral-dark/60 dark:text-gray-400">Operations Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== DASHBOARD ========== -->
+        <div id="page-dashboard" class="page-content">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Total Orders</p><p class="text-2xl font-bold text-neutral-dark dark:text-white">142</p></div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] rounded-full flex items-center justify-center"><i class="fas fa-clipboard-list text-gift-slate"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">In Production</p><p class="text-2xl font-bold text-neutral-dark dark:text-white">18</p></div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] rounded-full flex items-center justify-center"><i class="fas fa-cogs text-gift-slate"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Ready to Dispatch</p><p class="text-2xl font-bold text-neutral-dark dark:text-white">9</p></div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] rounded-full flex items-center justify-center"><i class="fas fa-box text-gift-slate"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex justify-between">
+                        <div><p class="text-xs text-neutral-dark/60 dark:text-gray-400 mb-1">Monthly Revenue</p><p class="text-2xl font-bold text-neutral-dark dark:text-white">$48,250</p></div>
+                        <div class="w-10 h-10 bg-[rgba(var(--color-rgb-primary),0.08)] rounded-full flex items-center justify-center"><i class="fas fa-dollar-sign text-gift-slate"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="card-design p-6">
+                    <h3 class="font-display font-bold text-lg mb-4">Recent Orders</h3>
+                    <div class="space-y-3">
+                        <div class="flex gap-3 pb-3 border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.1)]">
+                            <i class="fas fa-gem text-gift-slate mt-1"></i>
+                            <div class="flex-1"><p class="text-sm font-medium">#G-2026-042 · Executive Hampers</p><p class="text-xs text-neutral-dark/60 dark:text-gray-400">50 units · Customization in progress</p></div>
+                            <span class="status-badge status-customization text-xs">Customization</span>
+                        </div>
+                        <div class="flex gap-3 pb-3 border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.1)]">
+                            <i class="fas fa-tshirt text-gift-slate mt-1"></i>
+                            <div class="flex-1"><p class="text-sm font-medium">#G-2026-038 · Branded Apparel</p><p class="text-xs text-neutral-dark/60 dark:text-gray-400">120 units · Dispatched</p></div>
+                            <span class="status-badge status-dispatch text-xs">Dispatched</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <i class="fas fa-bolt text-gift-slate mt-1"></i>
+                            <div class="flex-1"><p class="text-sm font-medium">#G-2026-031 · Tech Gift Sets</p><p class="text-xs text-neutral-dark/60 dark:text-gray-400">75 units · Order confirmed</p></div>
+                            <span class="status-badge status-confirmed text-xs">Confirmed</span>
+                        </div>
+                    </div>
+                    <button data-nav="orders" class="btn-outline-design w-full mt-4 py-2 text-sm">View All Orders</button>
+                </div>
+                <div class="card-design p-6">
+                    <h3 class="font-display font-bold text-lg mb-4">Quick Actions</h3>
+                    <div class="space-y-3">
+                        <button data-nav="orders" class="w-full text-left px-4 py-3 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.1)] text-neutral-dark dark:text-white rounded-xl hover:bg-[rgba(var(--color-rgb-primary),0.2)] transition flex items-center gap-3">
+                            <i class="fas fa-plus-circle text-gift-slate"></i><span>Create New Order</span>
+                        </button>
+                        <button data-nav="production" class="w-full text-left px-4 py-3 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.1)] text-neutral-dark dark:text-white rounded-xl hover:bg-[rgba(var(--color-rgb-primary),0.2)] transition flex items-center gap-3">
+                            <i class="fas fa-cogs text-gift-slate"></i><span>Update Production Status</span>
+                        </button>
+                        <button data-nav="billing" class="w-full text-left px-4 py-3 bg-[rgba(var(--color-rgb-primary),0.08)] dark:bg-[rgba(var(--color-rgb-bright),0.1)] text-neutral-dark dark:text-white rounded-xl hover:bg-[rgba(var(--color-rgb-primary),0.2)] transition flex items-center gap-3">
+                            <i class="fas fa-file-invoice text-gift-slate"></i><span>Generate Invoices</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== ORDERS ========== -->
+        <div id="page-orders" class="page-content hidden">
+            <div class="card-design p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-display font-bold text-2xl">All Orders</h3>
+                    <button class="btn-primary-design px-4 py-1.5 text-sm"><i class="fas fa-plus"></i> New Order</button>
+                </div>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Manage all bulk gift orders and track their production status.</p>
+                <div class="space-y-4">
+                    <div class="p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div>
+                                <p class="font-bold text-lg">#G-2026-042 · Executive Hampers</p>
+                                <p class="text-sm text-neutral-dark/60 dark:text-gray-400">Client: Michael Johnson · 50 units · Luxury gift baskets</p>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <span class="status-badge status-customization">Customization</span>
+                                    <span class="text-xs text-neutral-dark/60 dark:text-gray-400">Updated: May 12, 2026</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-edit mr-1"></i>Update</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Track</button>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="grid grid-cols-4 text-[10px] sm:text-xs text-neutral-dark/60 dark:text-gray-400 mb-1.5 font-medium">
+                                <span class="text-left truncate">Confirmed</span>
+                                <span class="text-center truncate">Customization</span>
+                                <span class="text-center truncate">Production</span>
+                                <span class="text-right truncate">Dispatch</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div>
+                                <p class="font-bold text-lg">#G-2026-038 · Branded Apparel</p>
+                                <p class="text-sm text-neutral-dark/60 dark:text-gray-400">Client: Sarah Kim · 120 units · Custom embroidered jackets</p>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <span class="status-badge status-dispatch">Dispatched</span>
+                                    <span class="text-xs text-neutral-dark/60 dark:text-gray-400">Updated: May 10, 2026</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-edit mr-1"></i>Update</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-truck mr-1"></i>Track</button>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="grid grid-cols-4 text-[10px] sm:text-xs text-neutral-dark/60 dark:text-gray-400 mb-1.5 font-medium">
+                                <span class="text-left truncate">Confirmed</span>
+                                <span class="text-center truncate">Customization</span>
+                                <span class="text-center truncate">Production</span>
+                                <span class="text-right truncate">Dispatch</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-start gap-3">
+                            <div>
+                                <p class="font-bold text-lg">#G-2026-031 · Tech Gift Sets</p>
+                                <p class="text-sm text-neutral-dark/60 dark:text-gray-400">Client: Tom Rodriguez · 75 units · Wireless chargers & power banks</p>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <span class="status-badge status-confirmed">Confirmed</span>
+                                    <span class="text-xs text-neutral-dark/60 dark:text-gray-400">Updated: May 5, 2026</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn-outline-design text-xs px-4 py-1.5"><i class="fas fa-edit mr-1"></i>Update</button>
+                                <button class="btn-primary-design text-xs px-4 py-1.5"><i class="fas fa-eye mr-1"></i>Track</button>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="grid grid-cols-4 text-[10px] sm:text-xs text-neutral-dark/60 dark:text-gray-400 mb-1.5 font-medium">
+                                <span class="text-left truncate">Confirmed</span>
+                                <span class="text-center truncate">Customization</span>
+                                <span class="text-center truncate">Production</span>
+                                <span class="text-right truncate">Dispatch</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== CLIENTS ========== -->
+        <div id="page-clients" class="page-content hidden">
+            <div class="card-design p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-display font-bold text-2xl">Clients</h3>
+                    <button class="btn-primary-design px-4 py-1.5 text-sm"><i class="fas fa-plus"></i> Add Client</button>
+                </div>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Manage all registered corporate clients and their order history.</p>
+                <div class="space-y-3">
+                    <div class="client-card card-design p-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-gift-slate shrink-0 bg-gift-slate">
+                                <img src="assets/client_avatar.jpg" alt="Michael Johnson" class="w-full h-full object-cover object-top" style="object-position: center 15%;">
+                            </div>
+                            <div>
+                                <p class="font-bold">Michael Johnson</p>
+                                <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Premium Client · 8 orders</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 flex-nowrap">
+                            <span class="status-badge status-active">Active</span>
+                            <span class="text-sm text-neutral-dark/60">$24,850</span>
+                            <button class="text-sm font-semibold text-gift-slate hover:text-gift-slate-dark">View →</button>
+                        </div>
+                    </div>
+                    <div class="client-card card-design p-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gift-accent flex items-center justify-center text-white font-bold">SK</div>
+                            <div>
+                                <p class="font-bold">Sarah Kim</p>
+                                <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Standard Client · 5 orders</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 flex-nowrap">
+                            <span class="status-badge status-pending">Pending</span>
+                            <span class="text-sm text-neutral-dark/60">$12,400</span>
+                            <button class="text-sm font-semibold text-gift-slate hover:text-gift-slate-dark">View →</button>
+                        </div>
+                    </div>
+                    <div class="client-card card-design p-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gift-slate-dark flex items-center justify-center text-white font-bold">TR</div>
+                            <div>
+                                <p class="font-bold">Tom Rodriguez</p>
+                                <p class="text-xs text-neutral-dark/60 dark:text-gray-400">Premium Client · 12 orders</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 flex-nowrap">
+                            <span class="status-badge status-completed">Completed</span>
+                            <span class="text-sm text-neutral-dark/60">$38,200</span>
+                            <button class="text-sm font-semibold text-gift-slate hover:text-gift-slate-dark">View →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PRODUCTION ========== -->
+        <div id="page-production" class="page-content hidden">
+            <div class="card-design p-6">
+                <h3 class="font-display font-bold text-2xl mb-4">Production Status</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Update and track production stages for all active orders.</p>
+                <div class="space-y-4">
+                    <div class="p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-center gap-3">
+                            <div>
+                                <p class="font-bold">#G-2026-042 · Executive Hampers</p>
+                                <p class="text-sm text-neutral-dark/60">50 units · Customization in progress</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <select class="form-input text-sm py-1.5 px-3 w-auto">
+                                    <option>Customization</option>
+                                    <option>Production</option>
+                                    <option>Quality Check</option>
+                                    <option>Dispatch</option>
+                                </select>
+                                <button class="btn-primary-design text-sm px-4 py-1.5">Update</button>
+                            </div>
+                        </div>
+                        <div class="mt-3"><div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div></div>
+                    </div>
+                    <div class="p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-center gap-3">
+                            <div>
+                                <p class="font-bold">#G-2026-031 · Tech Gift Sets</p>
+                                <p class="text-sm text-neutral-dark/60">75 units · Production started</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <select class="form-input text-sm py-1.5 px-3 w-auto">
+                                    <option>Confirmed</option>
+                                    <option selected>Production</option>
+                                    <option>Quality Check</option>
+                                    <option>Dispatch</option>
+                                </select>
+                                <button class="btn-primary-design text-sm px-4 py-1.5">Update</button>
+                            </div>
+                        </div>
+                        <div class="mt-3"><div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div></div>
+                    </div>
+                    <div class="p-5 bg-[rgba(var(--color-rgb-primary),0.04)] dark:bg-[rgba(var(--color-rgb-bright),0.05)] rounded-2xl border border-[rgba(var(--color-rgb-primary),0.08)]">
+                        <div class="flex flex-wrap justify-between items-center gap-3">
+                            <div>
+                                <p class="font-bold">#G-2026-038 · Branded Apparel</p>
+                                <p class="text-sm text-neutral-dark/60">120 units · Ready for dispatch</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <select class="form-input text-sm py-1.5 px-3 w-auto">
+                                    <option>Customization</option>
+                                    <option>Production</option>
+                                    <option>Quality Check</option>
+                                    <option selected>Dispatch</option>
+                                </select>
+                                <button class="btn-primary-design text-sm px-4 py-1.5">Update</button>
+                            </div>
+                        </div>
+                        <div class="mt-3"><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== BILLING ========== -->
+        <div id="page-billing" class="page-content hidden">
+            <div class="card-design p-6">
+                <h3 class="font-display font-bold text-2xl mb-4">Billing Overview</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">View all transactions, generate invoices, and manage payments.</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <th class="text-left py-2 px-3 font-semibold">Client</th>
+                                <th class="text-left py-2 px-3 font-semibold">Order</th>
+                                <th class="text-left py-2 px-3 font-semibold">Amount</th>
+                                <th class="text-left py-2 px-3 font-semibold">Date</th>
+                                <th class="text-left py-2 px-3 font-semibold">Status</th>
+                                <th class="text-left py-2 px-3 font-semibold">Invoice</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <td class="py-2 px-3 font-medium">Michael Johnson</td>
+                                <td class="py-2 px-3">#G-2026-042</td>
+                                <td class="py-2 px-3 font-bold text-gift-slate">$4,250.00</td>
+                                <td class="py-2 px-3">May 10, 2026</td>
+                                <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                <td class="py-2 px-3"><button class="text-gift-slate hover:text-gift-slate-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                            <tr class="border-b border-[rgba(var(--color-rgb-primary),0.08)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                                <td class="py-2 px-3 font-medium">Sarah Kim</td>
+                                <td class="py-2 px-3">#G-2026-038</td>
+                                <td class="py-2 px-3 font-bold text-gift-slate">$7,200.00</td>
+                                <td class="py-2 px-3">May 8, 2026</td>
+                                <td class="py-2 px-3"><span class="status-badge status-paid">Paid</span></td>
+                                <td class="py-2 px-3"><button class="text-gift-slate hover:text-gift-slate-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 font-medium">Tom Rodriguez</td>
+                                <td class="py-2 px-3">#G-2026-031</td>
+                                <td class="py-2 px-3 font-bold text-gift-slate">$6,375.00</td>
+                                <td class="py-2 px-3">May 5, 2026</td>
+                                <td class="py-2 px-3"><span class="status-badge status-pending">Pending</span></td>
+                                <td class="py-2 px-3"><button class="text-gift-slate hover:text-gift-slate-dark"><i class="fas fa-download"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                    <button class="btn-primary-design px-5 py-2.5 text-sm inline-flex items-center gap-2"><i class="fas fa-file-invoice"></i> Generate Invoices</button>
+                    <button class="btn-outline-design px-5 py-2.5 text-sm inline-flex items-center gap-2"><i class="fas fa-download"></i> Export Reports</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MESSAGES ========== -->
+        <div id="page-messages" class="page-content hidden">
+            <div class="card-design p-6">
+                <h3 class="font-display font-bold text-2xl mb-4">Messages</h3>
+                <p class="text-sm text-neutral-dark/60 dark:text-gray-400 mb-6">Communicate with clients about their orders.</p>
+                <div class="space-y-4">
+                    <div class="p-4 bg-[rgba(var(--color-rgb-primary),0.05)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] rounded-xl">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-bold">Michael Johnson <span class="text-xs font-normal text-neutral-dark/60">Client</span></p>
+                                <p class="text-sm mt-1">Can I add 20 more units to my order #G-2026-042?</p>
+                            </div>
+                            <span class="text-xs text-neutral-dark/60">Today, 11:00 AM</span>
+                        </div>
+                        <div class="mt-2 flex gap-2">
+                            <button class="btn-primary-design px-4 py-1 text-sm">Reply</button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-[#FFFFFF] dark:bg-[#0A0D12] rounded-xl border border-[rgba(var(--color-rgb-primary),0.12)] dark:border-[rgba(var(--color-rgb-bright),0.15)]">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-bold">Admin <span class="text-xs font-normal text-neutral-dark/60">You</span></p>
+                                <p class="text-sm mt-1">Absolutely! I've updated the quantity to 70 units. The updated invoice will be sent shortly.</p>
+                            </div>
+                            <span class="text-xs text-neutral-dark/60">Yesterday, 6:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-[rgba(var(--color-rgb-primary),0.05)] dark:bg-[rgba(var(--color-rgb-bright),0.08)] rounded-xl">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-bold">Sarah Kim <span class="text-xs font-normal text-neutral-dark/60">Client</span></p>
+                                <p class="text-sm mt-1">When will my order #G-2026-038 be delivered?</p>
+                            </div>
+                            <span class="text-xs text-neutral-dark/60">Yesterday, 2:00 PM</span>
+                        </div>
+                        <div class="mt-2 flex gap-2">
+                            <button class="btn-primary-design px-4 py-1 text-sm">Reply</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label class="form-label">Send a Message</label>
+                    <div class="flex gap-3">
+                        <input type="text" class="form-input flex-1" placeholder="Type your message..." />
+                        <button class="btn-primary-design px-6 py-2"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // RTL Toggle
+            const rtlToggle = document.getElementById('rtl-toggle');
+            const rtlToggleMobile = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            const savedDir = localStorage.getItem('dir');
+            setRTL(savedDir === 'rtl');
+            if (rtlToggle) rtlToggle.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            if (rtlToggleMobile) rtlToggleMobile.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                if (isDark) document.documentElement.classList.add('dark');
+                else document.documentElement.classList.remove('dark');
+                [themeToggle, themeToggleMobile].forEach(btn => {
+                    if (btn) {
+                        let moon = btn.querySelector('.fa-moon'), sun = btn.querySelector('.fa-sun');
+                        if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                        else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                    }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            const savedTheme = localStorage.getItem('theme');
+            setTheme(savedTheme === 'dark');
+            if (themeToggle) themeToggle.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            if (themeToggleMobile) themeToggleMobile.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // Mobile Sidebar
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+            function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('open'); }
+            if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+            if (overlay) overlay.addEventListener('click', closeSidebar);
+            window.addEventListener('resize', () => { if (window.innerWidth > 768 && sidebar.classList.contains('open')) closeSidebar(); });
+
+            // Navigation
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const pages = document.querySelectorAll('.page-content');
+            const pageTitle = document.getElementById('page-title');
+            const pageSubtitle = document.getElementById('page-subtitle');
+            const titles = {
+                dashboard: { title: 'Dashboard', subtitle: 'Welcome back, Admin' },
+                orders: { title: 'Orders', subtitle: 'Manage all bulk gift orders' },
+                clients: { title: 'Clients', subtitle: 'Manage corporate clients' },
+                production: { title: 'Production', subtitle: 'Track production status' },
+                billing: { title: 'Billing', subtitle: 'View transactions and invoices' },
+                messages: { title: 'Messages', subtitle: 'Communicate with clients' }
+            };
+            function navigateTo(page) {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                document.querySelector(`.sidebar-item[data-page="${page}"]`)?.classList.add('active');
+                pages.forEach(p => p.classList.add('hidden'));
+                document.getElementById(`page-${page}`)?.classList.remove('hidden');
+                if (titles[page]) { pageTitle.textContent = titles[page].title; pageSubtitle.textContent = titles[page].subtitle; }
+                closeSidebar();
+            }
+            sidebarItems.forEach(item => { item.addEventListener('click', () => { navigateTo(item.getAttribute('data-page')); }); });
+            document.querySelectorAll('[data-nav]').forEach(btn => { btn.addEventListener('click', () => { navigateTo(btn.getAttribute('data-nav')); }); });
+        });
+    </script>
+</body>
+</html>
