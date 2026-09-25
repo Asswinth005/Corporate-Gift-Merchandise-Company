@@ -95,7 +95,7 @@
     .dark .service-icon { background: rgba(var(--color-rgb-bright), 0.12) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.25); }
     .dark .badge { background: rgba(var(--color-rgb-bright), 0.15) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.3); }
     .dark .dropdown-item:hover { color: var(--color-primary-bright) !important; }
-    .dark .auth-btn.login:hover { border-color: var(--color-primary-bright) !important; color: var(--color-primary-bright) !important; }
+    .dark .auth-btn.login:hover { border-color: transparent !important; color: #0A0D12 !important; }
     .dark .nav-item:hover { color: var(--color-primary-bright) !important; }
     .dark .nav-item::after { background: var(--color-primary-bright) !important; }
     .dark .premium-line { background: linear-gradient(90deg, var(--color-primary-bright), rgba(var(--color-rgb-bright), 0.1)); }
@@ -120,10 +120,10 @@
     .dark .dropdown-item:hover { background: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
     .dropdown-item i { margin-right: 0.85rem; width: 20px; text-align: center; color: var(--color-primary); }
     .auth-btn { padding: 0.6rem 1.75rem; border-radius: 50px; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s ease; border: 1px solid transparent; white-space: nowrap; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; }
-    .auth-btn.login { background: transparent; border-color: rgba(var(--color-rgb-primary), 0.4); color: var(--color-text-dark); }
-    .dark .auth-btn.login { border-color: rgba(var(--color-rgb-bright), 0.4); color: #E2E8F0; }
-    .auth-btn.login:hover { border-color: var(--color-primary); color: var(--color-primary); background: rgba(var(--color-rgb-primary), 0.05); }
-    .dark .auth-btn.login:hover { border-color: var(--color-primary-bright); color: var(--color-primary-bright); background: rgba(var(--color-rgb-bright), 0.1); }
+    .auth-btn.login { background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); color: #ffffff !important; box-shadow: 0 4px 15px rgba(var(--color-rgb-primary), 0.35); border: none; }
+    .dark .auth-btn.login { background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%); color: #0A0D12 !important; box-shadow: 0 4px 15px rgba(var(--color-rgb-bright), 0.3); border: none; }
+    .auth-btn.login:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(var(--color-rgb-primary), 0.45); color: #ffffff !important; }
+    .dark .auth-btn.login:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(var(--color-rgb-bright), 0.45); color: #0A0D12 !important; }
     .auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); color: white; box-shadow: 0 4px 15px rgba(var(--color-rgb-primary), 0.3); }
     .dark .auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%); color: #0A0D12; }
     .auth-btn.signup:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(var(--color-rgb-primary), 0.4); }
@@ -149,10 +149,10 @@
     .mobile-dropdown-item:hover { color: var(--color-primary); background-color: rgba(var(--color-rgb-primary), 0.1); }
     .dark .mobile-dropdown-item:hover { background-color: rgba(var(--color-rgb-bright), 0.15); color: var(--color-primary-bright); }
     .mobile-auth-btn { display: inline-block; padding: 0.85rem 1.75rem; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; text-align: center; margin: 0.25rem; border: 1px solid transparent; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
-    .mobile-auth-btn.login { background: transparent; border-color: rgba(var(--color-rgb-primary), 0.4); color: var(--color-text-dark); }
-    .dark .mobile-auth-btn.login { border-color: rgba(var(--color-rgb-bright), 0.4); color: #E2E8F0; }
-    .mobile-auth-btn.login:hover { background-color: var(--color-primary); color: white; border-color: var(--color-primary); }
-    .dark .mobile-auth-btn.login:hover { background-color: var(--color-primary-bright); color: #0A0D12; border-color: var(--color-primary-bright); }
+    .mobile-auth-btn.login { background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); color: #ffffff !important; box-shadow: 0 4px 15px rgba(var(--color-rgb-primary), 0.3); border: none; }
+    .dark .mobile-auth-btn.login { background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%); color: #0A0D12 !important; border: none; }
+    .mobile-auth-btn.login:hover { opacity: 0.95; transform: translateY(-1px); }
+    .dark .mobile-auth-btn.login:hover { opacity: 0.95; transform: translateY(-1px); color: #0A0D12 !important; }
     .mobile-auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); color: white; }
     .dark .mobile-auth-btn.signup { background: linear-gradient(135deg, var(--color-primary-bright) 0%, var(--color-primary) 100%); color: #0A0D12; }
     .mobile-auth-btn.signup:hover { opacity: 0.95; }
@@ -294,8 +294,7 @@
             </div>
           </div>
           <div class="flex items-center gap-3 ml-2">
-            <a href="login.html" class="auth-btn login">Login</a>
-            <a href="signup.html" class="auth-btn signup">Sign Up</a>
+            <a href="login.html" class="auth-btn login">Sign In</a>
           </div>
         </div>
         <div class="flex gap-2.5 ml-5 desktop-toggle-group">
@@ -336,8 +335,7 @@
         </div>
       </div>
       <div class="flex flex-col sm:flex-row gap-3 p-6">
-        <a href="login.html" class="mobile-auth-btn login flex-1 text-center">Login</a>
-        <a href="signup.html" class="mobile-auth-btn signup flex-1 text-center">Sign Up</a>
+        <a href="login.html" class="mobile-auth-btn login flex-1 text-center">Sign In</a>
       </div>
       <div class="flex justify-center gap-3 p-6 border-t border-gray-200 dark:border-gray-800">
         <button id="theme-toggle-mobile" class="toggle-btn"><i class="fas fa-moon"></i><i class="fas fa-sun hidden"></i></button>
