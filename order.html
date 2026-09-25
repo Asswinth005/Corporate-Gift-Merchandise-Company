@@ -81,6 +81,9 @@
     .dark .text-gift-slate { color: var(--color-primary-bright) !important; }
     .dark .bg-gift-slate { background-color: var(--color-primary-bright) !important; }
     .dark .border-gift-slate { border-color: var(--color-primary-bright) !important; }
+    .dark .product-card a:hover,
+    .dark a.dark\:hover\:text-dark-bg:hover,
+    .dark a.dark\:hover\:\!text-dark-bg:hover { color: #0A0D12 !important; }
     .dark .service-icon { background: rgba(var(--color-rgb-bright), 0.12) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.25); }
     .dark .badge { background: rgba(var(--color-rgb-bright), 0.15) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.3); }
     .dark .dropdown-item:hover { color: var(--color-primary-bright) !important; }
@@ -88,6 +91,9 @@
     .dark .nav-item:hover { color: var(--color-primary-bright) !important; }
     .dark .nav-item::after { background: var(--color-primary-bright) !important; }
     .dark .premium-line { background: linear-gradient(90deg, var(--color-primary-bright), rgba(var(--color-rgb-bright), 0.1)); }
+    .catalog-cover-box { position: relative; border-radius: 20px 20px 0 0; overflow: hidden; height: 190px; }
+    .catalog-cover-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .download-card:hover .catalog-cover-img { transform: scale(1.06); }
     body::-webkit-scrollbar { display: none; }
     body { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -367,34 +373,462 @@
 </nav>
 
 <!-- ========== HERO: ORDER ========== -->
-<section class="min-h-[60vh] lg:min-h-[70vh] flex items-center pt-28 pb-16 bg-bg-warm dark:bg-dark-bg overflow-hidden transition-colors duration-400 relative">
+<section class="min-h-[55vh] flex items-center pt-28 pb-16 bg-bg-warm dark:bg-dark-bg overflow-hidden transition-colors duration-400 relative">
   <div class="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10" style="background: radial-gradient(circle at 50% 50%, var(--color-primary-light), transparent 70%);"></div>
   <div class="container mx-auto px-6 relative z-10 text-center">
     <div class="max-w-3xl mx-auto animate-slide-up">
       <div class="inline-flex items-center gap-2 bg-white/80 dark:bg-dark-card/60 px-5 py-2 rounded-full border border-gift-slate/20 backdrop-blur-md mb-6">
         <i class="fas fa-clipboard-list text-gift-slate dark:text-gift-slate-bright text-xs"></i>
-        <span class="text-[11px] font-bold font-alt dark:text-gift-slate-bright tracking-widest uppercase">Corporate Procurement</span>
+        <span class="text-[11px] font-bold font-alt dark:text-gift-slate-bright tracking-widest uppercase">Corporate Procurement Portal</span>
       </div>
       <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold leading-[1.15] text-neutral-dark dark:text-white mb-4">
-        Place Your <span class="gold-gradient-text">Order</span>
+        Place Your <span class="gold-gradient-text">Corporate Order</span>
       </h1>
       <div class="premium-line !my-6 mx-auto"></div>
       <p class="text-lg lg:text-xl text-neutral-dark/80 dark:text-gray-300 max-w-2xl mx-auto mb-8 font-premium italic leading-relaxed">
-        Streamlined ordering for enterprises — from minimum order requirements to bulk pricing, our concierge team ensures a seamless procurement experience.
+        Streamlined B2B ordering — transparent minimum order quantities, volume pricing tiers, bespoke customization options, and instant catalog downloads.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <button class="btn-gift !py-4 !px-8 text-base"><i class="fas fa-shopping-cart mr-2"></i> Start Order</button>
-        <button class="btn-outline-gift text-base"><i class="fas fa-file-pdf mr-2"></i> Download Catalog</button>
+        <a href="#order-form" class="btn-gift !py-4 !px-8 text-base"><i class="fas fa-paper-plane mr-2"></i> Submit Order Inquiry</a>
+        <a href="#download-catalog" class="btn-outline-gift text-base"><i class="fas fa-file-pdf mr-2"></i> Download Catalogs</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== MINIMUM ORDER REQUIREMENTS ========== -->
-<section class="py-24 bg-white dark:bg-dark-card border-y border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
+<!-- ========== DETAILED ORDERING PROCESS (HOW TO PLACE AN ORDER) ========== -->
+<section id="how-it-works" class="py-20 bg-white dark:bg-dark-card border-y border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
-      <span class="pill-badge"><i class="fas fa-chart-simple mr-2"></i> Order Policy</span>
+      <span class="pill-badge"><i class="fas fa-route mr-2"></i> Simple Procurement Workflow</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">How To <span class="gold-gradient-text">Place An Order</span></h2>
+      <p class="text-lg max-w-2xl mx-auto opacity-80 font-premium italic mt-3">From selecting product SKUs and specifying custom branding to volume pricing approval and white-glove global delivery.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <!-- Step 1 -->
+      <div class="bg-bg-warm dark:bg-dark-bg p-6 rounded-3xl border border-gift-slate/15 dark:border-gift-slate-bright/20 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-2xl bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright font-display font-extrabold text-xl flex items-center justify-center border border-gift-slate/20">01</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright bg-white dark:bg-dark-surface px-3 py-1 rounded-full border border-gift-slate/20">Step 01</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2 group-hover:text-gift-slate dark:group-hover:text-gift-slate-bright transition-colors">Select Products &amp; Quantity</h3>
+          <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">Choose from our 5 primary corporate collections or request a 1-of-1 bespoke hamper. Minimum order quantities (MOQs) start from 5 to 25 units per SKU.</p>
+          <ul class="space-y-2 text-xs text-neutral-dark/80 dark:text-gray-300 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Browse Hampers, Tech, Leather &amp; Drinkware</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Mix &amp; match items for orders over $7,500</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Sample box evaluation available on request</span></li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gift-slate/10 dark:border-gray-800 text-[11px] font-semibold text-gift-slate dark:text-gift-slate-bright flex items-center justify-between">
+          <span>MOQ Starting: 5–25 Units</span>
+          <i class="fas fa-box font-normal opacity-70"></i>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-bg-warm dark:bg-dark-bg p-6 rounded-3xl border border-gift-slate/15 dark:border-gift-slate-bright/20 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-2xl bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright font-display font-extrabold text-xl flex items-center justify-center border border-gift-slate/20">02</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright bg-white dark:bg-dark-surface px-3 py-1 rounded-full border border-gift-slate/20">Step 02</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2 group-hover:text-gift-slate dark:group-hover:text-gift-slate-bright transition-colors">Specify Customization</h3>
+          <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">Select your preferred branding methods — Laser Monogramming, 24k Gold Hot-Foil Stamping, Blind Crest Embossing, or Pantone Custom Color Matching.</p>
+          <ul class="space-y-2 text-xs text-neutral-dark/80 dark:text-gray-300 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Upload vector logo files (SVG, AI, EPS, PDF)</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Individual recipient monogramming available</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Bespoke silk-lined wooden trunks &amp; sleeves</span></li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gift-slate/10 dark:border-gray-800 text-[11px] font-semibold text-gift-slate dark:text-gift-slate-bright flex items-center justify-between">
+          <span>Branding Proof: 24 Hours</span>
+          <i class="fas fa-stamp font-normal opacity-70"></i>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-bg-warm dark:bg-dark-bg p-6 rounded-3xl border border-gift-slate/15 dark:border-gift-slate-bright/20 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-2xl bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright font-display font-extrabold text-xl flex items-center justify-center border border-gift-slate/20">03</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright bg-white dark:bg-dark-surface px-3 py-1 rounded-full border border-gift-slate/20">Step 03</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2 group-hover:text-gift-slate dark:group-hover:text-gift-slate-bright transition-colors">Quote &amp; 3D Proof Approval</h3>
+          <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">Receive an instant volume-tiered price quote with bulk discounts up to 30% off, along with high-resolution 3D digital artwork proofs for final sign-off.</p>
+          <ul class="space-y-2 text-xs text-neutral-dark/80 dark:text-gray-300 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Automatic volume tier discounts (15% to 30% off)</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Photorealistic 3D digital proof rendering</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Physical pre-production prototype on request</span></li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gift-slate/10 dark:border-gray-800 text-[11px] font-semibold text-gift-slate dark:text-gift-slate-bright flex items-center justify-between">
+          <span>Quote Turnaround: Instant</span>
+          <i class="fas fa-file-invoice-dollar font-normal opacity-70"></i>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-bg-warm dark:bg-dark-bg p-6 rounded-3xl border border-gift-slate/15 dark:border-gift-slate-bright/20 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="w-12 h-12 rounded-2xl bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright font-display font-extrabold text-xl flex items-center justify-center border border-gift-slate/20">04</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright bg-white dark:bg-dark-surface px-3 py-1 rounded-full border border-gift-slate/20">Step 04</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2 group-hover:text-gift-slate dark:group-hover:text-gift-slate-bright transition-colors">Production &amp; Global Delivery</h3>
+          <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">Artisan hand-crafted manufacturing and white-glove logistics. We ship to corporate headquarters or drop-ship directly to individual recipient home addresses globally.</p>
+          <ul class="space-y-2 text-xs text-neutral-dark/80 dark:text-gray-300 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Standard lead time 5–7 days; 48-hour rush available</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Individual global drop-shipping to 120+ countries</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Real-time tracking via Client Portal Dashboard</span></li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gift-slate/10 dark:border-gray-800 text-[11px] font-semibold text-gift-slate dark:text-gift-slate-bright flex items-center justify-between">
+          <span>Delivery: 5–7 Days / Rush 48h</span>
+          <i class="fas fa-truck-fast font-normal opacity-70"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AVAILABLE PRODUCTS, PRICING & CUSTOMIZATION MATRIX ========== -->
+<section id="products-pricing-matrix" class="py-20 bg-bg-warm dark:bg-dark-bg transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="pill-badge"><i class="fas fa-boxes-stacked mr-2"></i> Catalog Breakdown</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Available Products &amp; <span class="gold-gradient-text">Pricing Overview</span></h2>
+      <p class="text-lg max-w-2xl mx-auto opacity-80 font-premium italic mt-3">Transparent minimum order requirements, pricing ranges, and bespoke customization capabilities for all primary categories.</p>
+    </div>
+
+    <!-- Product Category Matrix Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+      <!-- Category 1 -->
+      <div class="bg-white dark:bg-dark-card border border-neutral-light/80 dark:border-gray-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+        <div class="relative h-48 overflow-hidden bg-neutral-900">
+          <img src="assets/luxury_gift_hamper.png" alt="Luxury Gift Hampers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-3 left-3 bg-dark-bg/80 backdrop-blur-md text-gift-slate-bright px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-gift-slate-bright/30">Gourmet &amp; Celebrations</div>
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="text-xl font-display font-bold mb-1 text-neutral-dark dark:text-white">Executive Gift Hampers</h3>
+            <p class="text-xs opacity-75 leading-relaxed mb-4">Curated artisan chocolates, vintage Bordeaux wines, hand-bound leather journals &amp; gold-embossed greeting cards.</p>
+            <div class="bg-bg-warm dark:bg-dark-surface p-4 rounded-2xl border border-gift-slate/10 dark:border-gray-800 mb-4 space-y-2 text-xs">
+              <div class="flex justify-between"><span class="opacity-70">Price Range:</span><span class="font-bold text-gift-slate dark:text-gift-slate-bright">$185 – $495 / unit</span></div>
+              <div class="flex justify-between"><span class="opacity-70">Minimum Order (MOQ):</span><span class="font-bold">10 Units</span></div>
+              <div class="flex justify-between"><span class="opacity-70">Standard Turnaround:</span><span class="font-bold">5–7 Business Days</span></div>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-2">Customization Options:</span>
+              <div class="flex flex-wrap gap-1.5 text-[10px]">
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">Silk-Lined Wooden Trunk</span>
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">Wax Seal Letter</span>
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">Custom Ribbon</span>
+              </div>
+            </div>
+          </div>
+          <a href="#order-form" class="btn-gift mt-6 w-full justify-center text-xs !py-3"><i class="fas fa-calculator mr-1"></i> Request Hamper Quote</a>
+        </div>
+      </div>
+
+      <!-- Category 2 -->
+      <div class="bg-white dark:bg-dark-card border border-neutral-light/80 dark:border-gray-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+        <div class="relative h-48 overflow-hidden bg-neutral-900">
+          <img src="assets/h2_aerosound_headphones.png" alt="Haute Smart Tech & Audio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-3 left-3 bg-dark-bg/80 backdrop-blur-md text-gift-slate-bright px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-gift-slate-bright/30">Electronics &amp; Audio</div>
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="text-xl font-display font-bold mb-1 text-neutral-dark dark:text-white">Haute Smart Tech &amp; Audio</h3>
+            <p class="text-xs opacity-75 leading-relaxed mb-4">Active noise cancelling headphones, Qi MagSafe chargers, titanium desk vaults &amp; waterproof Bluetooth speakers.</p>
+            <div class="bg-bg-warm dark:bg-dark-surface p-4 rounded-2xl border border-gift-slate/10 dark:border-gray-800 mb-4 space-y-2 text-xs">
+              <div class="flex justify-between"><span class="opacity-70">Price Range:</span><span class="font-bold text-gift-slate dark:text-gift-slate-bright">$120 – $320 / unit</span></div>
+              <div class="flex justify-between"><span class="opacity-70">Minimum Order (MOQ):</span><span class="font-bold">15 Units</span></div>
+              <div class="flex justify-between"><span class="opacity-70">Standard Turnaround:</span><span class="font-bold">5–7 Business Days</span></div>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-2">Customization Options:</span>
+              <div class="flex flex-wrap gap-1.5 text-[10px]">
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">Laser Logo Engraving</span>
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">Custom Sleeve</span>
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">NFC Digital Card</span>
+              </div>
+            </div>
+          </div>
+          <a href="#order-form" class="btn-gift mt-6 w-full justify-center text-xs !py-3"><i class="fas fa-calculator mr-1"></i> Request Tech Quote</a>
+        </div>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="bg-white dark:bg-dark-card border border-neutral-light/80 dark:border-gray-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+        <div class="relative h-48 overflow-hidden bg-neutral-900">
+          <img src="assets/leather_weekender_bag.png" alt="Italian Leather Goods" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute top-3 left-3 bg-dark-bg/80 backdrop-blur-md text-gift-slate-bright px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-gift-slate-bright/30">Leather &amp; Travel</div>
+        </div>
+        <div class="p-6 flex flex-col flex-grow justify-between">
+          <div>
+            <h3 class="text-xl font-display font-bold mb-1 text-neutral-dark dark:text-white">Italian Leather Goods</h3>
+            <p class="text-xs opacity-75 leading-relaxed mb-4">Full-grain Italian calfskin weekender bags, executive briefcases, hand-bound journals &amp; RFID travel folios.</p>
+            <div class="bg-bg-warm dark:bg-dark-surface p-4 rounded-2xl border border-gift-slate/10 dark:border-gray-800 mb-4 space-y-2 text-xs">
+              <div class="flex justify-between"><span class="opacity-70">Price Range:</span><span class="font-bold text-gift-slate dark:text-gift-slate-bright">$145 – $380 / unit</span></div>
+              <div class="flex justify-between"><span class="opacity-70">Minimum Order (MOQ):</span><span class="font-bold">10 Units</span></div>
+              <div class="flex justify-between"><span class="opacity-70">Standard Turnaround:</span><span class="font-bold">5–7 Business Days</span></div>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-2">Customization Options:</span>
+              <div class="flex flex-wrap gap-1.5 text-[10px]">
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">Blind Crest Embossing</span>
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">24k Gold Foil Initial</span>
+                <span class="bg-gift-slate/10 dark:bg-gift-slate-bright/15 text-gift-slate dark:text-gift-slate-bright px-2.5 py-1 rounded-full font-medium">Brass Hardware</span>
+              </div>
+            </div>
+          </div>
+          <a href="#order-form" class="btn-gift mt-6 w-full justify-center text-xs !py-3"><i class="fas fa-calculator mr-1"></i> Request Leather Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Volume Tier Savings Calculator Banner -->
+    <div class="bg-gradient-to-r from-gift-slate-dark via-gift-slate to-gift-slate-dark dark:from-dark-card dark:via-dark-surface dark:to-dark-card p-8 rounded-3xl border border-gift-slate/30 text-white max-w-6xl mx-auto shadow-xl">
+      <div class="text-center mb-8">
+        <span class="bg-white/10 text-gift-slate-bright text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-white/20">Volume Discount Structure</span>
+        <h3 class="text-2xl md:text-3xl font-display font-bold mt-3">Enterprise Volume Pricing Tiers</h3>
+        <p class="text-xs md:text-sm text-white/80 max-w-2xl mx-auto mt-1">Automatic savings applied as your order volume scales. Free digital proofs and logo setup included for orders above 50 units.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="bg-white/10 dark:bg-dark-bg/60 p-5 rounded-2xl border border-white/10">
+          <div class="text-xs uppercase tracking-wider text-white/70 font-bold mb-1">Tier 1: 10–49 Units</div>
+          <div class="text-2xl font-display font-extrabold text-gift-slate-bright">Standard Rate</div>
+          <div class="text-[11px] text-white/80 mt-2">Standard Wholesale • 7-10 Days</div>
+        </div>
+        <div class="bg-white/10 dark:bg-dark-bg/60 p-5 rounded-2xl border border-white/10">
+          <div class="text-xs uppercase tracking-wider text-white/70 font-bold mb-1">Tier 2: 50–199 Units</div>
+          <div class="text-2xl font-display font-extrabold text-gift-slate-bright">15% Savings</div>
+          <div class="text-[11px] text-white/80 mt-2">+ Free Vector Logo Setup</div>
+        </div>
+        <div class="bg-white/10 dark:bg-dark-bg/60 p-5 rounded-2xl border border-white/10">
+          <div class="text-xs uppercase tracking-wider text-white/70 font-bold mb-1">Tier 3: 200–499 Units</div>
+          <div class="text-2xl font-display font-extrabold text-gift-slate-bright">22% Savings</div>
+          <div class="text-[11px] text-white/80 mt-2">+ Free Custom Box Sleeves</div>
+        </div>
+        <div class="bg-white/10 dark:bg-dark-bg/60 p-5 rounded-2xl border border-white/10">
+          <div class="text-xs uppercase tracking-wider text-white/70 font-bold mb-1">Tier 4: 500+ Units</div>
+          <div class="text-2xl font-display font-extrabold text-gift-slate-bright">30% Savings</div>
+          <div class="text-[11px] text-white/80 mt-2">+ Free Prototype &amp; Drop-shipping</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== UPGRADED CATALOG DOWNLOAD SECTION (WITH IMAGES & BRIEF INFO) ========== -->
+<section id="download-catalog" class="py-20 bg-white dark:bg-dark-card border-t border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="pill-badge"><i class="fas fa-file-arrow-down mr-2"></i> Official Publications</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Download Our <span class="gold-gradient-text">Catalogs &amp; Guides</span></h2>
+      <p class="text-lg max-w-2xl mx-auto opacity-80 font-premium italic mt-3">Comprehensive product previews, material swatch guides, volume pricing matrixes, and curated executive lookbooks.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto items-stretch">
+      <!-- Catalog Card 1 -->
+      <div class="download-card !p-0 overflow-hidden text-left flex flex-col justify-between">
+        <div>
+          <div class="catalog-cover-box">
+            <img src="assets/c1.jpg" alt="2026 Full Collection Catalog" class="catalog-cover-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/90 via-dark-bg/30 to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-gift-slate dark:bg-gift-slate-bright text-white dark:text-dark-bg text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Complete Catalog</span>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+              <span class="font-bold font-display">PDF Format</span>
+              <span class="opacity-80">48 Pages • 18 MB</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2">2026 Full Collection</h3>
+            <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">Complete 48-page catalog featuring 120+ luxury hampers, smart tech, Italian leather goods, and drinkware with complete SKU codes, dimensions, and specifications.</p>
+            <div class="space-y-1.5 text-[11px] text-neutral-dark/80 dark:text-gray-400 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> All 5 primary collection lines</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> SKU specifications &amp; dimensions</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Standard MOQ &amp; lead time table</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="assets/c1.jpg" download class="btn-gift w-full justify-center text-xs !py-3.5"><i class="fas fa-download mr-2"></i> Download Full Catalog</a>
+        </div>
+      </div>
+
+      <!-- Catalog Card 2 -->
+      <div class="download-card !p-0 overflow-hidden text-left flex flex-col justify-between">
+        <div>
+          <div class="catalog-cover-box">
+            <img src="assets/craftsmanship_atelier.jpg" alt="Bespoke Customization Guide" class="catalog-cover-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/90 via-dark-bg/30 to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-gift-slate dark:bg-gift-slate-bright text-white dark:text-dark-bg text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Materials &amp; Branding</span>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+              <span class="font-bold font-display">PDF Format</span>
+              <span class="opacity-80">32 Pages • 12 MB</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2">Bespoke Customization Guide</h3>
+            <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">32-page material swatch book featuring full-grain Italian leathers, metallic foil samples, laser engraving depth specs, Pantone matching, and custom box die-lines.</p>
+            <div class="space-y-1.5 text-[11px] text-neutral-dark/80 dark:text-gray-400 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Leather &amp; metal finish swatches</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Laser etching &amp; foil stamping specs</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Custom gift box die-lines</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="assets/c2.jpg" download class="btn-gift w-full justify-center text-xs !py-3.5"><i class="fas fa-download mr-2"></i> Download Bespoke Guide</a>
+        </div>
+      </div>
+
+      <!-- Catalog Card 3 -->
+      <div class="download-card !p-0 overflow-hidden text-left flex flex-col justify-between">
+        <div>
+          <div class="catalog-cover-box">
+            <img src="assets/executive_desk_set.png" alt="Enterprise Volume Pricing Matrix" class="catalog-cover-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/90 via-dark-bg/30 to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-gift-slate dark:bg-gift-slate-bright text-white dark:text-dark-bg text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Pricing Tiers</span>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+              <span class="font-bold font-display">Excel / Sheet</span>
+              <span class="opacity-80">4 Sheets • 2 MB</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2">Volume Pricing Matrix</h3>
+            <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">4-sheet interactive spreadsheet detailing tier-by-tier volume price drops (10% to 30%), custom logo setup fees, MOQ thresholds, rush production rates, and shipping guidelines.</p>
+            <div class="space-y-1.5 text-[11px] text-neutral-dark/80 dark:text-gray-400 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Tiered discount calculator</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Custom branding setup fee breakdown</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Global shipping cost estimators</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="assets/c3.jpg" download class="btn-gift w-full justify-center text-xs !py-3.5"><i class="fas fa-download mr-2"></i> Download Pricing Matrix</a>
+        </div>
+      </div>
+
+      <!-- Catalog Card 4 -->
+      <div class="download-card !p-0 overflow-hidden text-left flex flex-col justify-between">
+        <div>
+          <div class="catalog-cover-box">
+            <img src="assets/c2.jpg" alt="Curated Executive Lookbook 2026" class="catalog-cover-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/90 via-dark-bg/30 to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-gift-slate dark:bg-gift-slate-bright text-white dark:text-dark-bg text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Visual Inspiration</span>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+              <span class="font-bold font-display">PDF Format</span>
+              <span class="opacity-80">28 Pages • 24 MB</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-display font-bold text-neutral-dark dark:text-white mb-2">Curated Executive Lookbook</h3>
+            <p class="text-xs text-neutral-dark/70 dark:text-gray-300 leading-relaxed mb-4">High-resolution 28-page editorial lookbook highlighting curated holiday kits, VIP onboarding gifts, Fortune 500 client case studies &amp; unboxing presentations.</p>
+            <div class="space-y-1.5 text-[11px] text-neutral-dark/80 dark:text-gray-400 border-t border-gift-slate/10 dark:border-gray-800 pt-3">
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Editorial photography &amp; setups</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Executive onboarding gift kit concepts</div>
+              <div class="flex items-center gap-2"><i class="fas fa-check text-gift-slate dark:text-gift-slate-bright text-[10px]"></i> Client success case studies</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="assets/c4.jpg" download class="btn-gift w-full justify-center text-xs !py-3.5"><i class="fas fa-download mr-2"></i> Download Lookbook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INTERACTIVE ORDER REQUEST FORM ========== -->
+<section id="order-form" class="py-20 bg-bg-warm dark:bg-dark-bg transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-3xl p-8 md:p-12 border border-gift-slate/20 dark:border-gift-slate-bright/20 shadow-2xl">
+      <div class="text-center mb-10">
+        <span class="pill-badge"><i class="fas fa-paper-plane mr-2"></i> Instant Quote Request</span>
+        <h2 class="text-3xl md:text-4xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Submit Corporate <span class="gold-gradient-text">Order Request</span></h2>
+        <p class="text-sm opacity-80 max-w-lg mx-auto mt-2">Fill in your procurement details below. Our concierge team will send an itemized quote &amp; 3D proof within 2 business hours.</p>
+      </div>
+
+      <form id="procurement-form" onsubmit="event.preventDefault(); alert('Thank you! Your corporate order inquiry has been received. Our concierge team will reach out within 2 hours with your itemized quote & 3D digital proof.');" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Company Name *</label>
+            <input type="text" required placeholder="e.g. Acme Corporation" class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl px-4 py-3.5 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Contact Name *</label>
+            <input type="text" required placeholder="e.g. Sarah Jenkins" class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl px-4 py-3.5 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Work Email *</label>
+            <input type="email" required placeholder="s.jenkins@acme.com" class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl px-4 py-3.5 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Phone Number *</label>
+            <input type="tel" required placeholder="+1 (555) 019-2831" class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl px-4 py-3.5 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Product Category *</label>
+            <select required class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl px-4 py-3.5 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition">
+              <option value="">Select Category</option>
+              <option value="hampers">Executive Gift Hampers</option>
+              <option value="tech">Haute Smart Tech &amp; Audio</option>
+              <option value="leather">Italian Leather Goods</option>
+              <option value="drinkware">Artisan Drinkware</option>
+              <option value="desk">Executive Desk Accessories</option>
+              <option value="mixed">Mixed Custom Bundle</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Estimated Quantity *</label>
+            <select required class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl px-4 py-3.5 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition">
+              <option value="">Select Volume Tier</option>
+              <option value="10-49">10 – 49 Units (Standard)</option>
+              <option value="50-199">50 – 199 Units (15% Discount)</option>
+              <option value="200-499">200 – 499 Units (22% Discount)</option>
+              <option value="500+">500+ Units (30% Enterprise)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Target Timeline *</label>
+            <select required class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl px-4 py-3.5 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition">
+              <option value="standard">Standard (7–10 Days)</option>
+              <option value="priority">Priority (5 Business Days)</option>
+              <option value="rush">Rush Dispatch (48 Hours)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Branding &amp; Customization Notes</label>
+          <textarea rows="4" placeholder="Mention your preferred branding method (Laser Monogramming, Gold Foil, Blind Embossing), custom box preferences, or individual recipient shipping details..." class="w-full bg-bg-warm dark:bg-dark-surface border border-gift-slate/20 dark:border-gray-800 rounded-2xl p-4 text-sm text-neutral-dark dark:text-white focus:outline-none focus:border-gift-slate dark:focus:border-gift-slate-bright transition"></textarea>
+        </div>
+
+        <div class="text-center pt-4">
+          <button type="submit" class="btn-gift !py-4 !px-12 text-base justify-center"><i class="fas fa-paper-plane mr-2"></i> Submit Order Inquiry</button>
+          <p class="text-[11px] opacity-60 mt-3">By submitting, you agree to receive a customized corporate quote and digital proof preview via email.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MINIMUM ORDER REQUIREMENTS POLICY ========== -->
+<section class="py-20 bg-white dark:bg-dark-card border-y border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="pill-badge"><i class="fas fa-chart-simple mr-2"></i> Procurement Policy</span>
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Minimum <span class="gold-gradient-text">Order Requirements</span></h2>
       <p class="text-lg max-w-2xl mx-auto opacity-80 font-premium italic mt-3">Designed for enterprises — clear tiers to meet your gifting scale</p>
     </div>
@@ -402,130 +836,49 @@
       <div class="order-card text-center">
         <div class="flex-1 flex flex-col">
           <div class="icon-wrap mx-auto"><i class="fas fa-flag"></i></div>
-          <div class="text-3xl font-display font-extrabold gold-gradient-text">Starter</div>
-          <div class="text-sm opacity-70 mt-1">Minimum order</div>
+          <div class="text-3xl font-display font-extrabold gold-gradient-text">Starter Tier</div>
+          <div class="text-sm opacity-70 mt-1">Minimum order value</div>
           <div class="text-4xl font-display font-bold mt-4 text-neutral-dark dark:text-white">$2,500</div>
           <ul class="mt-5 space-y-2 text-sm text-left">
             <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Up to 50 units per SKU</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Standard branding</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>7–10 business days</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Standard laser or foil branding</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>7–10 business days turnaround</span></li>
           </ul>
         </div>
-        <button class="btn-outline-gift mt-6 text-sm w-full">Select</button>
+        <a href="#order-form" class="btn-outline-gift mt-6 text-sm w-full block text-center">Select Starter</a>
       </div>
 
       <div class="order-card text-center border-gift-slate/40 dark:border-gift-slate-bright/40 relative">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 pill-badge !bg-gift-slate !text-white dark:!bg-gift-slate-bright dark:!text-dark-bg border-0 text-[10px]">Popular</div>
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 pill-badge !bg-gift-slate !text-white dark:!bg-gift-slate-bright dark:!text-dark-bg border-0 text-[10px]">Most Popular</div>
         <div class="flex-1 flex flex-col">
           <div class="icon-wrap mx-auto"><i class="fas fa-crown"></i></div>
-          <div class="text-3xl font-display font-extrabold gold-gradient-text">Executive</div>
-          <div class="text-sm opacity-70 mt-1">Minimum order</div>
+          <div class="text-3xl font-display font-extrabold gold-gradient-text">Executive Tier</div>
+          <div class="text-sm opacity-70 mt-1">Minimum order value</div>
           <div class="text-4xl font-display font-bold mt-4 text-neutral-dark dark:text-white">$7,500</div>
           <ul class="mt-5 space-y-2 text-sm text-left">
             <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Up to 250 units per SKU</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Custom packaging & monogram</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>5–7 business days</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Dedicated account manager</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Custom packaging &amp; monogramming</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>5–7 business days turnaround</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Dedicated Concierge Account Manager</span></li>
           </ul>
         </div>
-        <button class="btn-gift mt-6 text-sm w-full justify-center">Select</button>
+        <a href="#order-form" class="btn-gift mt-6 text-sm w-full justify-center">Select Executive</a>
       </div>
 
       <div class="order-card text-center">
         <div class="flex-1 flex flex-col">
           <div class="icon-wrap mx-auto"><i class="fas fa-gem"></i></div>
-          <div class="text-3xl font-display font-extrabold gold-gradient-text">Enterprise</div>
-          <div class="text-sm opacity-70 mt-1">Minimum order</div>
+          <div class="text-3xl font-display font-extrabold gold-gradient-text">Enterprise Tier</div>
+          <div class="text-sm opacity-70 mt-1">Minimum order value</div>
           <div class="text-4xl font-display font-bold mt-4 text-neutral-dark dark:text-white">$15,000+</div>
           <ul class="mt-5 space-y-2 text-sm text-left">
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Unlimited units, any SKU</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Full bespoke design service</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>3–5 business days</span></li>
-            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>White-glove delivery</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Unlimited units across any SKU</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>Full bespoke design &amp; trunk service</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>3–5 business days / 48h rush</span></li>
+            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gift-slate dark:text-gift-slate-bright mt-0.5"></i> <span>White-glove global drop-shipping</span></li>
           </ul>
         </div>
-        <button class="btn-outline-gift mt-6 text-sm w-full">Select</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CATALOG DOWNLOAD SECTION ========== -->
-<section class="py-24 bg-bg-warm dark:bg-dark-bg transition-colors duration-400">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="pill-badge"><i class="fas fa-download mr-2"></i> Resources</span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Download Our <span class="gold-gradient-text">Catalog</span></h2>
-      <p class="text-lg max-w-2xl mx-auto opacity-80 font-premium italic mt-3">Complete collections, pricing, and customization options at your fingertips</p>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto items-stretch">
-      <div class="download-card">
-        <div class="flex-1 flex flex-col justify-center">
-          <div class="text-5xl text-gift-slate dark:text-gift-slate-bright mb-4"><i class="fas fa-box-open"></i></div>
-          <h3 class="text-xl font-display font-bold mb-1">Full Collection</h3>
-          <p class="text-sm opacity-70">Complete product catalog 2026</p>
-          <p class="text-xs opacity-50 mt-2">PDF • 48 pages • 18 MB</p>
-        </div>
-        <button class="btn-gift mt-5 w-full justify-center text-sm"><i class="fas fa-download mr-2"></i> Download</button>
-      </div>
-      <div class="download-card">
-        <div class="flex-1 flex flex-col justify-center">
-          <div class="text-5xl text-gift-slate dark:text-gift-slate-bright mb-4"><i class="fas fa-pen-fancy"></i></div>
-          <h3 class="text-xl font-display font-bold mb-1">Bespoke Guide</h3>
-          <p class="text-sm opacity-70">Customization & materials</p>
-          <p class="text-xs opacity-50 mt-2">PDF • 32 pages • 12 MB</p>
-        </div>
-        <button class="btn-gift mt-5 w-full justify-center text-sm"><i class="fas fa-download mr-2"></i> Download</button>
-      </div>
-      <div class="download-card">
-        <div class="flex-1 flex flex-col justify-center">
-          <div class="text-5xl text-gift-slate dark:text-gift-slate-bright mb-4"><i class="fas fa-chart-pie"></i></div>
-          <h3 class="text-xl font-display font-bold mb-1">Pricing Matrix</h3>
-          <p class="text-sm opacity-70">Volume pricing & tiers</p>
-          <p class="text-xs opacity-50 mt-2">Excel • 4 sheets • 2 MB</p>
-        </div>
-        <button class="btn-gift mt-5 w-full justify-center text-sm"><i class="fas fa-download mr-2"></i> Download</button>
-      </div>
-      <div class="download-card">
-        <div class="flex-1 flex flex-col justify-center">
-          <div class="text-5xl text-gift-slate dark:text-gift-slate-bright mb-4"><i class="fas fa-images"></i></div>
-          <h3 class="text-xl font-display font-bold mb-1">Lookbook</h3>
-          <p class="text-sm opacity-70">Visual inspiration</p>
-          <p class="text-xs opacity-50 mt-2">PDF • 28 pages • 24 MB</p>
-        </div>
-        <button class="btn-gift mt-5 w-full justify-center text-sm"><i class="fas fa-download mr-2"></i> Download</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== ORDER PROCESS STEPS ========== -->
-<section class="py-24 bg-white dark:bg-dark-card border-y border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <span class="pill-badge"><i class="fas fa-route mr-2"></i> How It Works</span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Order <span class="gold-gradient-text">In 4 Steps</span></h2>
-    </div>
-    <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-      <div class="text-center">
-        <div class="w-16 h-16 mx-auto bg-gift-slate/10 dark:bg-gift-slate-bright/15 rounded-2xl flex items-center justify-center text-2xl text-gift-slate dark:text-gift-slate-bright border border-gift-slate/20">01</div>
-        <h4 class="text-lg font-display font-bold mt-4">Select</h4>
-        <p class="text-sm opacity-70">Choose products from our collections or request bespoke</p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 mx-auto bg-gift-slate/10 dark:bg-gift-slate-bright/15 rounded-2xl flex items-center justify-center text-2xl text-gift-slate dark:text-gift-slate-bright border border-gift-slate/20">02</div>
-        <h4 class="text-lg font-display font-bold mt-4">Quote</h4>
-        <p class="text-sm opacity-70">Receive a customized quote with volume pricing</p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 mx-auto bg-gift-slate/10 dark:bg-gift-slate-bright/15 rounded-2xl flex items-center justify-center text-2xl text-gift-slate dark:text-gift-slate-bright border border-gift-slate/20">03</div>
-        <h4 class="text-lg font-display font-bold mt-4">Approve</h4>
-        <p class="text-sm opacity-70">Review design proofs and approve production</p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 mx-auto bg-gift-slate/10 dark:bg-gift-slate-bright/15 rounded-2xl flex items-center justify-center text-2xl text-gift-slate dark:text-gift-slate-bright border border-gift-slate/20">04</div>
-        <h4 class="text-lg font-display font-bold mt-4">Receive</h4>
-        <p class="text-sm opacity-70">White-glove delivery with your custom presentation</p>
+        <a href="#order-form" class="btn-outline-gift mt-6 text-sm w-full block text-center">Select Enterprise</a>
       </div>
     </div>
   </div>
@@ -539,8 +892,8 @@
     <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 mt-4">Speak to Our <span class="text-gift-slate-bright">Concierge</span></h2>
     <p class="text-xl opacity-90 max-w-2xl mx-auto mb-10 font-premium italic leading-relaxed">Our team is ready to guide you through large-scale orders, custom requirements, and enterprise procurement.</p>
     <div class="flex flex-wrap gap-5 justify-center">
-      <button class="bg-white text-neutral-dark dark:bg-gift-slate-bright dark:text-dark-bg px-10 py-4 rounded-full font-bold text-base hover:shadow-2xl transition duration-300 font-alt text-sm uppercase tracking-wider flex items-center gap-2"><i class="fas fa-headset"></i> Call Concierge</button>
-      <button class="border-2 border-white/60 dark:border-gift-slate-bright/60 text-white dark:text-gift-slate-bright px-10 py-4 rounded-full font-bold text-base hover:bg-white/10 dark:hover:bg-gift-slate-bright/10 transition duration-300 font-alt text-sm uppercase tracking-wider flex items-center gap-2"><i class="fas fa-envelope"></i> Email Procurement</button>
+      <a href="contact.html" class="bg-white text-neutral-dark dark:bg-gift-slate-bright dark:text-dark-bg px-10 py-4 rounded-full font-bold text-base hover:shadow-2xl transition duration-300 font-alt text-sm uppercase tracking-wider flex items-center gap-2"><i class="fas fa-headset"></i> Call Concierge</a>
+      <a href="contact.html" class="border-2 border-white/60 dark:border-gift-slate-bright/60 text-white dark:text-gift-slate-bright px-10 py-4 rounded-full font-bold text-base hover:bg-white/10 dark:hover:bg-gift-slate-bright/10 transition duration-300 font-alt text-sm uppercase tracking-wider flex items-center gap-2"><i class="fas fa-envelope"></i> Email Procurement</a>
     </div>
   </div>
 </section>
