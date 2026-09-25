@@ -81,6 +81,9 @@
     .dark .text-gift-slate { color: var(--color-primary-bright) !important; }
     .dark .bg-gift-slate { background-color: var(--color-primary-bright) !important; }
     .dark .border-gift-slate { border-color: var(--color-primary-bright) !important; }
+    .dark .product-card a:hover,
+    .dark a.dark\:hover\:text-dark-bg:hover,
+    .dark a.dark\:hover\:\!text-dark-bg:hover { color: #0A0D12 !important; }
     .dark .service-icon { background: rgba(var(--color-rgb-bright), 0.12) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.25); }
     .dark .badge { background: rgba(var(--color-rgb-bright), 0.15) !important; color: var(--color-primary-bright) !important; border: 1px solid rgba(var(--color-rgb-bright), 0.3); }
     .dark .dropdown-item:hover { color: var(--color-primary-bright) !important; }
@@ -392,120 +395,255 @@
 </nav>
 
 <!-- ========== HERO: CONTACT ========== -->
-<section class="min-h-[60vh] lg:min-h-[70vh] flex items-center pt-28 pb-16 bg-bg-warm dark:bg-dark-bg overflow-hidden transition-colors duration-400 relative">
+<section class="min-h-[55vh] flex items-center pt-28 pb-16 bg-bg-warm dark:bg-dark-bg overflow-hidden transition-colors duration-400 relative">
   <div class="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10" style="background: radial-gradient(circle at 50% 50%, var(--color-primary-light), transparent 70%);"></div>
   <div class="container mx-auto px-6 relative z-10 text-center">
     <div class="max-w-3xl mx-auto animate-slide-up">
       <div class="inline-flex items-center gap-2 bg-white/80 dark:bg-dark-card/60 px-5 py-2 rounded-full border border-gift-slate/20 backdrop-blur-md mb-6">
         <i class="fas fa-headset text-gift-slate dark:text-gift-slate-bright text-xs"></i>
-        <span class="text-[11px] font-bold font-alt dark:text-gift-slate-bright tracking-widest uppercase">Concierge Service</span>
+        <span class="text-[11px] font-bold font-alt dark:text-gift-slate-bright tracking-widest uppercase">Concierge &amp; Executive Support</span>
       </div>
       <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold leading-[1.15] text-neutral-dark dark:text-white mb-4">
         Let's <span class="gold-gradient-text">Connect</span>
       </h1>
       <div class="premium-line !my-6 mx-auto"></div>
       <p class="text-lg lg:text-xl text-neutral-dark/80 dark:text-gray-300 max-w-2xl mx-auto mb-8 font-premium italic leading-relaxed">
-        Our master concierges are at your service — whether you're ready to place an order, explore bespoke, or simply seek inspiration.
+        Our master concierges and B2B procurement advisors are at your service. Choose your preferred communication channel to get in touch instantly.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="tel:+18005550199" class="btn-gift !py-4 !px-8 text-base inline-flex items-center gap-2"><i class="fas fa-phone mr-1"></i> Call Us (+1 800 555-0199)</a>
+        <a href="tel:+18005550199" class="btn-gift !py-4 !px-8 text-base inline-flex items-center gap-2"><i class="fas fa-phone mr-1"></i> Call Desk (+1 800 555-0199)</a>
         <a href="https://wa.me/18005550199?text=Hello%20GiftForge%20Concierge,%20I%20would%20like%20to%20inquire%20about%20corporate%20gifting." target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-4 rounded-full font-bold text-base shadow-md hover:shadow-xl hover:scale-105 transition duration-300 inline-flex items-center gap-2"><i class="fab fa-whatsapp text-xl mr-1"></i> WhatsApp Us</a>
+        <a href="#book-consultation" class="btn-outline-gift text-base inline-flex items-center gap-2"><i class="fas fa-calendar-check mr-1"></i> Book Discovery Call</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== CONTACT INFO CARDS ========== -->
-<section class="py-16 bg-white dark:bg-dark-card border-b border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
+<!-- ========== COMPREHENSIVE 6-CHANNEL CONTACT OPTIONS GRID ========== -->
+<section class="py-20 bg-white dark:bg-dark-card border-y border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
   <div class="container mx-auto px-6">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-      <div class="contact-card">
-        <div class="icon-wrap"><i class="fas fa-phone"></i></div>
-        <h3 class="font-display font-bold text-lg">Phone Desk</h3>
-        <p class="text-sm font-semibold text-gift-slate dark:text-gift-slate-bright"><a href="tel:+18005550199" class="hover:underline">+1 (800) 555-0199</a></p>
-        <p class="text-xs opacity-50 mt-1">Mon–Fri, 9AM–6PM EST</p>
+    <div class="text-center mb-16">
+      <span class="pill-badge"><i class="fas fa-comments mr-2"></i> Multiple Contact Channels</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Get In Touch <span class="gold-gradient-text">Your Way</span></h2>
+      <p class="text-lg max-w-2xl mx-auto opacity-80 font-premium italic mt-3">Direct phone desks, instant WhatsApp chat, guaranteed email response, and virtual or in-person atelier discovery calls.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Contact Option 1: Phone -->
+      <div class="contact-card flex flex-col justify-between">
+        <div>
+          <div class="icon-wrap"><i class="fas fa-phone"></i></div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-1">Immediate Assistance</span>
+          <h3 class="font-display font-bold text-xl text-neutral-dark dark:text-white mb-2">Direct Phone Desk</h3>
+          <p class="text-sm font-bold text-gift-slate dark:text-gift-slate-bright mb-1"><a href="tel:+18005550199" class="hover:underline">+1 (800) 555-0199</a> <span class="text-xs font-normal opacity-70">(Toll-Free)</span></p>
+          <p class="text-xs opacity-70 mb-3">+1 (212) 555-0188 (International Direct)</p>
+          <p class="text-xs opacity-50 border-t border-gift-slate/10 dark:border-gray-800 pt-3">Mon–Fri: 9:00 AM – 6:00 PM EST</p>
+        </div>
+        <a href="tel:+18005550199" class="btn-outline-gift text-xs w-full block text-center mt-6">Call Now</a>
       </div>
-      <div class="contact-card">
-        <div class="icon-wrap" style="background: rgba(37, 211, 102, 0.1); border-color: rgba(37, 211, 102, 0.3); color: #25D366;"><i class="fab fa-whatsapp text-2xl"></i></div>
-        <h3 class="font-display font-bold text-lg">WhatsApp Chat</h3>
-        <p class="text-sm font-semibold text-[#25D366]"><a href="https://wa.me/18005550199?text=Hello%20GiftForge%20Concierge,%20I%20would%20like%20to%20inquire%20about%20corporate%20gifting." target="_blank" rel="noopener noreferrer" class="hover:underline">+1 (800) 555-0199</a></p>
-        <p class="text-xs opacity-50 mt-1">Instant Concierge Support</p>
+
+      <!-- Contact Option 2: WhatsApp -->
+      <div class="contact-card flex flex-col justify-between border-emerald-500/30 dark:border-emerald-500/30">
+        <div>
+          <div class="icon-wrap" style="background: rgba(37, 211, 102, 0.1); border-color: rgba(37, 211, 102, 0.3); color: #25D366;"><i class="fab fa-whatsapp text-2xl"></i></div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#25D366] block mb-1">Instant Messaging</span>
+          <h3 class="font-display font-bold text-xl text-neutral-dark dark:text-white mb-2">WhatsApp Concierge</h3>
+          <p class="text-sm font-bold text-[#25D366] mb-1"><a href="https://wa.me/18005550199?text=Hello%20GiftForge%20Concierge,%20I%20would%20like%20to%20inquire%20about%20corporate%20gifting." target="_blank" rel="noopener noreferrer" class="hover:underline">+1 (800) 555-0199</a></p>
+          <p class="text-xs opacity-70 mb-3">Live chat with a corporate gift curator</p>
+          <p class="text-xs opacity-50 border-t border-gift-slate/10 dark:border-gray-800 pt-3">24/7 Live Messaging (Average response: 5 mins)</p>
+        </div>
+        <a href="https://wa.me/18005550199?text=Hello%20GiftForge%20Concierge,%20I%20would%20like%20to%20inquire%20about%20corporate%20gifting." target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold py-3 px-4 rounded-full w-full block text-center mt-6 shadow-sm hover:shadow-md transition">Chat on WhatsApp</a>
       </div>
-      <div class="contact-card">
-        <div class="icon-wrap"><i class="fas fa-envelope"></i></div>
-        <h3 class="font-display font-bold text-lg">Email Concierge</h3>
-        <p class="text-sm font-semibold text-gift-slate dark:text-gift-slate-bright"><a href="mailto:concierge@gift.com" class="hover:underline">concierge@gift.com</a></p>
-        <p class="text-xs opacity-50 mt-1">Response within 2 hours</p>
+
+      <!-- Contact Option 3: Email & RFP -->
+      <div class="contact-card flex flex-col justify-between">
+        <div>
+          <div class="icon-wrap"><i class="fas fa-envelope"></i></div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-1">Corporate Inquiries</span>
+          <h3 class="font-display font-bold text-xl text-neutral-dark dark:text-white mb-2">Email &amp; RFP Submissions</h3>
+          <p class="text-sm font-bold text-gift-slate dark:text-gift-slate-bright mb-1"><a href="mailto:concierge@gift.com" class="hover:underline">concierge@gift.com</a></p>
+          <p class="text-xs opacity-70 mb-3">rfp@gift.com (Enterprise Tender Submissions)</p>
+          <p class="text-xs opacity-50 border-t border-gift-slate/10 dark:border-gray-800 pt-3">Guaranteed response within 2 business hours</p>
+        </div>
+        <a href="mailto:concierge@gift.com" class="btn-outline-gift text-xs w-full block text-center mt-6">Send Email</a>
       </div>
-      <div class="contact-card">
-        <div class="icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
-        <h3 class="font-display font-bold text-lg">Global Atelier</h3>
-        <p class="text-sm opacity-70">5th Ave Luxury Tower</p>
-        <p class="text-xs opacity-50 mt-1">NYC 10001, USA</p>
+
+      <!-- Contact Option 4: Book Consultation -->
+      <div class="contact-card flex flex-col justify-between border-gift-slate/30 dark:border-gift-slate-bright/30">
+        <div>
+          <div class="icon-wrap"><i class="fas fa-calendar-check"></i></div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-1">Curated Strategy</span>
+          <h3 class="font-display font-bold text-xl text-neutral-dark dark:text-white mb-2">Discovery Consultation</h3>
+          <p class="text-xs text-neutral-dark/80 dark:text-gray-300 mb-1">1-on-1 virtual video session or in-person NYC atelier walkthrough with a senior curator.</p>
+          <p class="text-xs opacity-50 border-t border-gift-slate/10 dark:border-gray-800 pt-3 mt-3">Flexible 15-min or 30-min time slots</p>
+        </div>
+        <a href="#book-consultation" class="btn-gift text-xs w-full justify-center mt-6"><i class="fas fa-calendar-plus mr-1"></i> Book Discovery Call</a>
+      </div>
+
+      <!-- Contact Option 5: Global Atelier Visit -->
+      <div class="contact-card flex flex-col justify-between">
+        <div>
+          <div class="icon-wrap"><i class="fas fa-building"></i></div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-1">Flagship Location</span>
+          <h3 class="font-display font-bold text-xl text-neutral-dark dark:text-white mb-2">NYC Flagship Atelier</h3>
+          <p class="text-xs font-semibold text-neutral-dark/90 dark:text-gray-200 mb-1">5th Ave Luxury Tower, 24th Floor</p>
+          <p class="text-xs opacity-70 mb-3">New York, NY 10001, USA</p>
+          <p class="text-xs opacity-50 border-t border-gift-slate/10 dark:border-gray-800 pt-3">By appointment • Private tasting lounge</p>
+        </div>
+        <a href="#flagship-atelier" class="btn-outline-gift text-xs w-full block text-center mt-6">View Directions</a>
+      </div>
+
+      <!-- Contact Option 6: Priority Rush Desk -->
+      <div class="contact-card flex flex-col justify-between">
+        <div>
+          <div class="icon-wrap"><i class="fas fa-bolt"></i></div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gift-slate dark:text-gift-slate-bright block mb-1">Urgent Requests</span>
+          <h3 class="font-display font-bold text-xl text-neutral-dark dark:text-white mb-2">Emergency Priority Desk</h3>
+          <p class="text-sm font-bold text-gift-slate dark:text-gift-slate-bright mb-1"><a href="mailto:priority@gift.com" class="hover:underline">priority@gift.com</a></p>
+          <p class="text-xs opacity-70 mb-3">For event deadlines under 48 hours</p>
+          <p class="text-xs opacity-50 border-t border-gift-slate/10 dark:border-gray-800 pt-3">24/7 Rapid Escalation Support</p>
+        </div>
+        <a href="mailto:priority@gift.com" class="btn-outline-gift text-xs w-full block text-center mt-6">Contact Priority Desk</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== CONTACT FORM SECTION ========== -->
-<section class="py-24 bg-bg-warm dark:bg-dark-bg transition-colors duration-400">
+<!-- ========== INTERACTIVE "BOOK A DISCOVERY CONSULTATION" SCHEDULER ========== -->
+<section id="book-consultation" class="py-20 bg-bg-warm dark:bg-dark-bg transition-colors duration-400">
   <div class="container mx-auto px-6">
-    <div class="text-center mb-12">
-      <span class="text-gift-slate dark:text-gift-slate-bright font-bold text-xs tracking-widest font-alt uppercase">BESPOKE INQUIRIES</span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-3 text-neutral-dark dark:text-white">
-        Request a <span class="gold-gradient-text">Bespoke Consultation</span>
-      </h2>
-      <p class="text-lg max-w-2xl mx-auto opacity-80 mt-2 font-premium italic">Connect directly with our corporate gifting master curators</p>
-    </div>
-
-    <div class="max-w-3xl mx-auto bg-white dark:bg-dark-card p-8 sm:p-12 rounded-3xl border border-gift-slate/15 dark:border-gift-slate-bright/20 shadow-xl">
-      <div class="text-center mb-8">
-        <span class="pill-badge"><i class="fas fa-pencil-alt mr-2"></i> Send a Message</span>
-        <h3 class="text-2xl md:text-3xl font-display font-bold mt-3 text-neutral-dark dark:text-white">Get in <span class="gold-gradient-text">Touch</span></h3>
-        <p class="text-sm opacity-80 mt-1 font-premium italic">Our concierge team will respond within 2 business hours.</p>
+    <div class="max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-3xl p-8 md:p-12 border border-gift-slate/20 dark:border-gift-slate-bright/20 shadow-2xl">
+      <div class="text-center mb-10">
+        <span class="pill-badge"><i class="fas fa-calendar-days mr-2"></i> Interactive Scheduler</span>
+        <h2 class="text-3xl md:text-4xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Book a <span class="gold-gradient-text">Discovery Session</span></h2>
+        <p class="text-sm opacity-80 max-w-lg mx-auto mt-2">Schedule a 1-on-1 session with a Senior Corporate Curator to inspect physical samples, review volume discounts, or design bespoke packaging.</p>
       </div>
-      <form class="space-y-6">
-        <div class="grid sm:grid-cols-2 gap-6">
+
+      <form id="booking-form" onsubmit="event.preventDefault(); alert('Consultation Scheduled! A calendar invite & Zoom link have been sent to your email. We look forward to meeting with you.');" class="space-y-6">
+        <!-- Meeting Format Selection -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-3">Preferred Meeting Format *</label>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="flex items-center gap-3 bg-bg-warm dark:bg-dark-surface p-4 rounded-2xl border border-gift-slate/20 dark:border-gray-800 cursor-pointer hover:border-gift-slate transition">
+              <input type="radio" name="meeting_type" value="virtual" checked class="text-gift-slate accent-[#C5A059]">
+              <div>
+                <span class="font-bold text-sm block">Virtual Video Call (Zoom / Google Meet)</span>
+                <span class="text-xs opacity-70">30-min screen share &amp; 3D sample review</span>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 bg-bg-warm dark:bg-dark-surface p-4 rounded-2xl border border-gift-slate/20 dark:border-gray-800 cursor-pointer hover:border-gift-slate transition">
+              <input type="radio" name="meeting_type" value="in-person" class="text-gift-slate accent-[#C5A059]">
+              <div>
+                <span class="font-bold text-sm block">In-Person NYC Atelier Meeting</span>
+                <span class="text-xs opacity-70">Physical swatch &amp; luxury hamper tasting lounge</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
           <div>
-            <label class="form-label">Full Name</label>
-            <input type="text" placeholder="James Sterling" class="form-input">
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Full Name *</label>
+            <input type="text" required placeholder="e.g. Victoria Vance" class="form-input">
           </div>
           <div>
-            <label class="form-label">Email Address</label>
-            <input type="email" placeholder="james@giftforge.com" class="form-input">
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Corporate Email *</label>
+            <input type="email" required placeholder="v.vance@enterprise.com" class="form-input">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Topic of Discussion *</label>
+            <select required class="form-input appearance-none">
+              <option value="">Select Primary Topic</option>
+              <option value="hampers">Holiday Executive Hampers</option>
+              <option value="onboarding">VIP Client &amp; Employee Onboarding Kits</option>
+              <option value="tech">Haute Smart Tech &amp; Audio Customization</option>
+              <option value="pricing">Volume Tier Pricing &amp; Tender RFPs</option>
+              <option value="bespoke">Bespoke 1-of-1 Leather &amp; Trunk Design</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Preferred Date *</label>
+            <input type="date" required class="form-input">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-neutral-dark dark:text-gray-300 mb-2">Time Window *</label>
+            <select required class="form-input appearance-none">
+              <option value="morning">Morning (10:00 AM – 12:00 PM EST)</option>
+              <option value="afternoon">Afternoon (1:00 PM – 3:30 PM EST)</option>
+              <option value="late">Late Afternoon (4:00 PM – 5:30 PM EST)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="text-center pt-4">
+          <button type="submit" class="btn-gift !py-4 !px-12 text-base justify-center"><i class="fas fa-calendar-check mr-2"></i> Confirm Discovery Session</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GENERAL CONTACT & BESPOKE INQUIRY FORM ========== -->
+<section id="contact-form" class="py-20 bg-white dark:bg-dark-card border-t border-neutral-light/50 dark:border-gray-800/60 transition-colors duration-400">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="text-gift-slate dark:text-gift-slate-bright font-bold text-xs tracking-widest font-alt uppercase">GENERAL &amp; MEDIA INQUIRIES</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-3 text-neutral-dark dark:text-white">
+        Send Us a <span class="gold-gradient-text">Direct Message</span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto opacity-80 mt-2 font-premium italic">Have questions about an existing order, customization methods, or partnerships?</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto bg-bg-warm dark:bg-dark-bg p-8 sm:p-12 rounded-3xl border border-gift-slate/15 dark:border-gift-slate-bright/20 shadow-xl">
+      <form onsubmit="event.preventDefault(); alert('Message sent successfully! Our concierge desk will respond within 2 hours.');" class="space-y-6">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="form-label">Your Name *</label>
+            <input type="text" required placeholder="James Sterling" class="form-input">
+          </div>
+          <div>
+            <label class="form-label">Email Address *</label>
+            <input type="email" required placeholder="james@giftforge.com" class="form-input">
           </div>
         </div>
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label class="form-label">Phone Number</label>
-            <input type="tel" placeholder="+1 (800) 555-0199" class="form-input">
+            <label class="form-label">Preferred Response Channel *</label>
+            <select required class="form-input appearance-none">
+              <option value="email">Email Response</option>
+              <option value="phone">Phone Call Back</option>
+              <option value="whatsapp">WhatsApp Message</option>
+            </select>
           </div>
           <div>
-            <label class="form-label">Subject</label>
-            <select class="form-input appearance-none">
-              <option>General Inquiry</option>
-              <option>Bespoke Order</option>
-              <option>Bulk Procurement</option>
-              <option>Customization</option>
-              <option>Partnership</option>
+            <label class="form-label">Inquiry Subject *</label>
+            <select required class="form-input appearance-none">
+              <option>General Corporate Inquiry</option>
+              <option>Bespoke Custom Order</option>
+              <option>Bulk Procurement &amp; Discounts</option>
+              <option>Existing Order Support</option>
+              <option>Press &amp; Media Partnership</option>
             </select>
           </div>
         </div>
         <div>
-          <label class="form-label">Message</label>
-          <textarea rows="4" placeholder="Tell us about your gifting vision..." class="form-input resize-none"></textarea>
+          <label class="form-label">Message Details *</label>
+          <textarea rows="4" required placeholder="Share details regarding your request, target unit quantities, or specific deadline..." class="form-input resize-none"></textarea>
         </div>
-        <button type="submit" class="btn-gift w-full justify-center py-4"><i class="fas fa-paper-plane mr-2"></i> Send Message</button>
+        <button type="submit" class="btn-gift w-full justify-center py-4"><i class="fas fa-paper-plane mr-2"></i> Submit Inquiry</button>
       </form>
     </div>
   </div>
 </section>
 
 <!-- ========== MAP & LOCATION SECTION ========== -->
-<section class="py-24 bg-white dark:bg-dark-card transition-colors duration-400 border-t border-neutral-light/50 dark:border-gray-800/60">
+<section id="flagship-atelier" class="py-24 bg-bg-warm dark:bg-dark-bg transition-colors duration-400 border-t border-neutral-light/50 dark:border-gray-800/60">
   <div class="container mx-auto px-6">
     <div class="max-w-5xl mx-auto text-center mb-12">
-      <span class="pill-badge"><i class="fas fa-location-dot mr-2"></i> Visit Us</span>
+      <span class="pill-badge"><i class="fas fa-location-dot mr-2"></i> Visit Our Location</span>
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mt-4 text-neutral-dark dark:text-white">Our <span class="gold-gradient-text">Flagship Atelier</span></h2>
       <p class="text-base opacity-80 mt-2 font-premium italic">Experience bespoke consultations in person at 5th Avenue, NYC</p>
     </div>
@@ -522,29 +660,29 @@
         </iframe>
         <div class="absolute bottom-5 left-5 bg-white/95 dark:bg-dark-card/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-gift-slate/20 dark:border-gift-slate-bright/30 pointer-events-none">
           <span class="text-sm font-bold font-alt tracking-wider text-neutral-dark dark:text-white flex items-center gap-2">
-            <i class="fas fa-map-pin text-gift-slate dark:text-gift-slate-bright"></i> 5th Ave Luxury Tower, NYC 10001
+            <i class="fas fa-map-pin text-gift-slate dark:text-gift-slate-bright"></i> 5th Ave Luxury Tower, 24th Fl, NYC 10001
           </span>
         </div>
       </div>
 
       <div class="grid sm:grid-cols-3 gap-6">
-        <div class="bg-bg-warm dark:bg-dark-bg rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center">
+        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center shadow-sm">
           <div class="text-gift-slate dark:text-gift-slate-bright text-2xl mx-auto mb-2"><i class="fas fa-clock"></i></div>
           <h4 class="font-bold text-base mt-1">Concierge Hours</h4>
           <p class="text-xs opacity-70 mt-1">Mon–Fri: 9AM – 6PM EST</p>
           <p class="text-xs opacity-50 mt-0.5">Sat–Sun: By appointment</p>
         </div>
-        <div class="bg-bg-warm dark:bg-dark-bg rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center">
+        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center shadow-sm">
           <div class="text-gift-slate dark:text-gift-slate-bright text-2xl mx-auto mb-2"><i class="fas fa-globe"></i></div>
           <h4 class="font-bold text-base mt-1">Global Procurement</h4>
           <p class="text-xs opacity-70 mt-1">Serving 50+ countries</p>
           <p class="text-xs opacity-50 mt-0.5">White-glove delivery</p>
         </div>
-        <div class="bg-bg-warm dark:bg-dark-bg rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center">
+        <div class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gift-slate/10 dark:border-gift-slate-bright/15 text-center shadow-sm">
           <div class="text-gift-slate dark:text-gift-slate-bright text-2xl mx-auto mb-2"><i class="fas fa-headset"></i></div>
           <h4 class="font-bold text-base mt-1">Priority Service</h4>
           <p class="text-xs opacity-70 mt-1">Emergency after-hours line</p>
-          <p class="text-xs opacity-50 mt-0.5"><a href="#" class="text-gift-slate dark:text-gift-slate-bright font-bold hover:underline">Direct Concierge Link</a></p>
+          <p class="text-xs opacity-50 mt-0.5"><a href="mailto:priority@gift.com" class="text-gift-slate dark:text-gift-slate-bright font-bold hover:underline">Direct Priority Link</a></p>
         </div>
       </div>
     </div>
